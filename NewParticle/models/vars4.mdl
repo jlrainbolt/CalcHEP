@@ -1,0 +1,261 @@
+Standard Model plus DY
+ Parameters
+  Name         | Value       |> Comment                                                                <|
+cabi           |0.227736     |Cabibbo angle                                                             |
+aEWM1          |127.9        |Inverse of the electroweak coupling constant                              |
+Gf             |0.0000116637 |Fermi constant                                                            |
+aS             |0.1184       |Strong coupling constant at the Z pole.                                   |
+ymb            |4.7          |Bottom Yukawa mass                                                        |
+ymt            |174.3        |Top Yukawa mass                                                           |
+ymtau          |1.777        |Tau Yukawa mass                                                           |
+gSg            |0            |Neutral Scalar - gluon coupling constant                                  |
+gVg            |0            |Neutral Vector - gluon coupling constant                                  |
+gTg            |0            |Neutral Tensor - gluon coupling constant                                  |
+gPuR1x1        |0            |Real part of Neutral Pseudoscalar - up quark coupling constant ( gPuR1x1 )|
+gPuR1x2        |0            |Real part of Neutral Pseudoscalar - up quark coupling constant ( gPuR1x2 )|
+gPuR2x2        |0            |Real part of Neutral Pseudoscalar - up quark coupling constant ( gPuR2x2 )|
+hUlR1x1        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hUlR1x2        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hUlR2x1        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hUlR2x2        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hUlI1x1        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hUlI1x2        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hUlI2x1        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hUlI2x2        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hYlR1x1        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hYlR1x1|
+hYlR1x2        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hYlR1x2|
+hYlR2x1        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hYlR2x1|
+hYlR2x2        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hYlR2x2|
+hYlI1x1        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hY|
+hYlI1x2        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hY|
+hYlI2x1        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hY|
+hYlI2x2        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hY|
+hZlR1x1        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hZlR1x2        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hZlR2x1        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hZlR2x2        |0            |Real part of Charged axial Symmetric Tensor - lepton coupling constant ( h|
+hZlI1x1        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hZlI1x2        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hZlI2x1        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+hZlI2x2        |0            |Imaginary part of Charged axial Symmetric Tensor - lepton coupling constan|
+gPuI1x2        |0            |Imaginary part of Neutral Pseudoscalar - up quark coupling constant ( gPuI|
+gSdR1x1        |0            |Real part of Neutral Scalar - down quark coupling constant ( gSdR1x1 )    |
+gSdR1x2        |0            |Real part of Neutral Scalar - down quark coupling constant ( gSdR1x2 )    |
+gSdR2x2        |0            |Real part of Neutral Scalar - down quark coupling constant ( gSdR2x2 )    |
+gSdI1x2        |0            |Imaginary part of Neutral Scalar - down quark coupling constant ( gSdI1x2 |
+gPdR1x1        |0            |Real part of Neutral Pseudoscalar - down quark coupling constant ( gPdR1x1|
+gPdR1x2        |0            |Real part of Neutral Pseudoscalar - down quark coupling constant ( gPdR1x2|
+gPdR2x2        |0            |Real part of Neutral Pseudoscalar - down quark coupling constant ( gPdR2x2|
+gPdI1x2        |0            |Imaginary part of Neutral Pseudoscalar - down quark coupling constant ( gP|
+gSlR1x1        |0            |Real part of Neutral Scalar - charged lepton coupling constant ( gSlR1x1 )|
+gSlR1x2        |0            |Real part of Neutral Scalar - charged lepton coupling constant ( gSlR1x2 )|
+gSlR2x2        |0            |Real part of Neutral Scalar - charged lepton coupling constant ( gSlR2x2 )|
+gSlI1x2        |0            |Imaginary part of Neutral Scalar - charged lepton coupling constant ( gSlI|
+gPlR1x1        |0            |Real part of Neutral Pseudoscalar - charged lepton coupling constant ( gPl|
+gPlR1x2        |0            |Real part of Neutral Pseudoscalar - charged lepton coupling constant ( gPl|
+gPlR2x2        |0            |Real part of Neutral Pseudoscalar - charged lepton coupling constant ( gPl|
+gPlI1x2        |0            |Imaginary part of Neutral Pseudoscalar - charged lepton coupling constant |
+gVuR1x1        |0            |Real part of Neutral Vector - up quark coupling constant ( gVuR1x1 )      |
+gVuR1x2        |0            |Real part of Neutral Vector - up quark coupling constant ( gVuR1x2 )      |
+gVuR2x2        |0            |Real part of Neutral Vector - up quark coupling constant ( gVuR2x2 )      |
+gVuI1x2        |0            |Imaginary part of Neutral Vector - up quark coupling constant ( gVuI1x2 ) |
+gAuR1x1        |0            |Real part of Neutral axial vector - up quark coupling constant ( gAuR1x1 )|
+gAuR1x2        |0            |Real part of Neutral axial vector - up quark coupling constant ( gAuR1x2 )|
+gAuR2x2        |0            |Real part of Neutral axial vector - up quark coupling constant ( gAuR2x2 )|
+gAuI1x2        |0            |Imaginary part of Neutral axial vector - up quark coupling constant ( gAuI|
+gVdR1x1        |0            |Real part of Neutral vector - down quark coupling constant ( gVdR1x1 )    |
+gVdR1x2        |0            |Real part of Neutral vector - down quark coupling constant ( gVdR1x2 )    |
+gVdR2x2        |0            |Real part of Neutral vector - down quark coupling constant ( gVdR2x2 )    |
+gVdI1x2        |0            |Imaginary part of Neutral vector - down quark coupling constant ( gVdI1x2 |
+gAdR1x1        |0            |Real part of Neutral axial vector - down quark coupling constant ( gAdR1x1|
+gAdR1x2        |0            |Real part of Neutral axial vector - down quark coupling constant ( gAdR1x2|
+gAdR2x2        |0            |Real part of Neutral axial vector - down quark coupling constant ( gAdR2x2|
+gAdI1x2        |0            |Imaginary part of Neutral axial vector - down quark coupling constant ( gA|
+gVlR1x1        |0            |Real part of Neutral vector - charged lepton coupling constant ( gVlR1x1 )|
+gVlR1x2        |0            |Real part of Neutral vector - charged lepton coupling constant ( gVlR1x2 )|
+gVlR2x2        |0            |Real part of Neutral vector - charged lepton coupling constant ( gVlR2x2 )|
+gVlI1x2        |0            |Imaginary part of Neutral vector - charged lepton coupling constant ( gVlI|
+gAlR1x1        |0            |Real part of Neutral axial vector - charged lepton coupling constant ( gAl|
+gAlR1x2        |0            |Real part of Neutral axial vector - charged lepton coupling constant ( gAl|
+gAlR2x2        |0            |Real part of Neutral axial vector - charged lepton coupling constant ( gAl|
+gAlI1x2        |0            |Imaginary part of Neutral axial vector - charged lepton coupling constant |
+gTuR1x1        |0            |Real part of Neutral Symmetric Tensor - up quark coupling constant ( gTuR1|
+gTuR1x2        |0            |Real part of Neutral Symmetric Tensor - up quark coupling constant ( gTuR1|
+gTuR2x1        |0            |Real part of Neutral Symmetric Tensor - up quark coupling constant ( gTuR2|
+gTuR2x2        |0            |Real part of Neutral Symmetric Tensor - up quark coupling constant ( gTuR2|
+gTuI1x1        |0            |Imaginary part of Neutral Symmetric Tensor - up quark coupling constant ( |
+gTuI1x2        |0            |Imaginary part of Neutral Symmetric Tensor - up quark coupling constant ( |
+gTuI2x1        |0            |Imaginary part of Neutral Symmetric Tensor - up quark coupling constant ( |
+gTuI2x2        |0            |Imaginary part of Neutral Symmetric Tensor - up quark coupling constant ( |
+gUuR1x1        |0            |Real part of Neutral axial Symmetric Tensor - up quark coupling constant (|
+gUuR1x2        |0            |Real part of Neutral axial Symmetric Tensor - up quark coupling constant (|
+gUuR2x1        |0            |Real part of Neutral axial Symmetric Tensor - up quark coupling constant (|
+gUuR2x2        |0            |Real part of Neutral axial Symmetric Tensor - up quark coupling constant (|
+gUuI1x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - up quark coupling const|
+gUuI1x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - up quark coupling const|
+gUuI2x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - up quark coupling const|
+gUuI2x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - up quark coupling const|
+gTdR1x1        |0            |Real part of Neutral Symmetric Tensor - down quark coupling constant ( gTd|
+gTdR1x2        |0            |Real part of Neutral Symmetric Tensor - down quark coupling constant ( gTd|
+gTdR2x1        |0            |Real part of Neutral Symmetric Tensor - down quark coupling constant ( gTd|
+gTdR2x2        |0            |Real part of Neutral Symmetric Tensor - down quark coupling constant ( gTd|
+gTdI1x1        |0            |Imaginary part of Neutral Symmetric Tensor - down quark coupling constant |
+gTdI1x2        |0            |Imaginary part of Neutral Symmetric Tensor - down quark coupling constant |
+gTdI2x1        |0            |Imaginary part of Neutral Symmetric Tensor - down quark coupling constant |
+gTdI2x2        |0            |Imaginary part of Neutral Symmetric Tensor - down quark coupling constant |
+gUdR1x1        |0            |Real part of Neutral axial Symmetric Tensor - down quark coupling constant|
+gUdR1x2        |0            |Real part of Neutral axial Symmetric Tensor - down quark coupling constant|
+gUdR2x1        |0            |Real part of Neutral axial Symmetric Tensor - down quark coupling constant|
+gUdR2x2        |0            |Real part of Neutral axial Symmetric Tensor - down quark coupling constant|
+gUdI1x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - down quark coupling con|
+gUdI1x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - down quark coupling con|
+gUdI2x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - down quark coupling con|
+gUdI2x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - down quark coupling con|
+gTlR1x1        |0            |Real part of Neutral Symmetric Tensor - charged lepton coupling constant (|
+gTlR1x2        |0            |Real part of Neutral Symmetric Tensor - charged lepton coupling constant (|
+gTlR2x1        |0            |Real part of Neutral Symmetric Tensor - charged lepton coupling constant (|
+gTlR2x2        |0            |Real part of Neutral Symmetric Tensor - charged lepton coupling constant (|
+gTlI1x1        |0            |Imaginary part of Neutral Symmetric Tensor - charged lepton coupling const|
+gTlI1x2        |0            |Imaginary part of Neutral Symmetric Tensor - charged lepton coupling const|
+gTlI2x1        |0            |Imaginary part of Neutral Symmetric Tensor - charged lepton coupling const|
+gTlI2x2        |0            |Imaginary part of Neutral Symmetric Tensor - charged lepton coupling const|
+gUlR1x1        |0            |Real part of Neutral axial Symmetric Tensor - charged lepton coupling cons|
+gUlR1x2        |0            |Real part of Neutral axial Symmetric Tensor - charged lepton coupling cons|
+gUlR2x1        |0            |Real part of Neutral axial Symmetric Tensor - charged lepton coupling cons|
+gUlR2x2        |0            |Real part of Neutral axial Symmetric Tensor - charged lepton coupling cons|
+gUlI1x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - charged lepton coupling|
+gUlI1x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - charged lepton coupling|
+gUlI2x1        |0            |Imaginary part of Neutral axial Symmetric Tensor - charged lepton coupling|
+gUlI2x2        |0            |Imaginary part of Neutral axial Symmetric Tensor - charged lepton coupling|
+hSqR1x1        |0            |Real part of Charged scalar - quark coupling constant ( hSqR1x1 )         |
+hSqR1x2        |0            |Real part of Charged scalar - quark coupling constant ( hSqR1x2 )         |
+hSqR2x1        |0            |Real part of Charged scalar - quark coupling constant ( hSqR2x1 )         |
+hSqR2x2        |0            |Real part of Charged scalar - quark coupling constant ( hSqR2x2 )         |
+hSqI1x1        |0            |Imaginary part of Charged scalar - quark coupling constant ( hSqI1x1 )    |
+hSqI1x2        |0            |Imaginary part of Charged scalar - quark coupling constant ( hSqI1x2 )    |
+hSqI2x1        |0            |Imaginary part of Charged scalar - quark coupling constant ( hSqI2x1 )    |
+hSqI2x2        |0            |Imaginary part of Charged scalar - quark coupling constant ( hSqI2x2 )    |
+hPqR1x1        |0            |Real part of Charged pseudoscalar - quark coupling constant ( hPqR1x1 )   |
+hPqR1x2        |0            |Real part of Charged pseudoscalar - quark coupling constant ( hPqR1x2 )   |
+hPqR2x1        |0            |Real part of Charged pseudoscalar - quark coupling constant ( hPqR2x1 )   |
+hPqR2x2        |0            |Real part of Charged pseudoscalar - quark coupling constant ( hPqR2x2 )   |
+hPqI1x1        |0            |Imaginary part of Charged pseudoscalar - quark coupling constant ( hPqI1x1|
+hPqI1x2        |0            |Imaginary part of Charged pseudoscalar - quark coupling constant ( hPqI1x2|
+hPqI2x1        |0            |Imaginary part of Charged pseudoscalar - quark coupling constant ( hPqI2x1|
+hPqI2x2        |0            |Imaginary part of Charged pseudoscalar - quark coupling constant ( hPqI2x2|
+hSlR1x1        |0            |Real part of Charged scalar - lepton coupling constant ( hSlR1x1 )        |
+hSlR1x2        |0            |Real part of Charged scalar - lepton coupling constant ( hSlR1x2 )        |
+hSlR2x1        |0            |Real part of Charged scalar - lepton coupling constant ( hSlR2x1 )        |
+hSlR2x2        |0            |Real part of Charged scalar - lepton coupling constant ( hSlR2x2 )        |
+hSlI1x1        |0            |Imaginary part of Charged scalar - lepton coupling constant ( hSlI1x1 )   |
+hSlI1x2        |0            |Imaginary part of Charged scalar - lepton coupling constant ( hSlI1x2 )   |
+hSlI2x1        |0            |Imaginary part of Charged scalar - lepton coupling constant ( hSlI2x1 )   |
+hSlI2x2        |0            |Imaginary part of Charged scalar - lepton coupling constant ( hSlI2x2 )   |
+gSuR1x1        |0            |Real part of Neutral Scalar - up quark coupling constant ( gSuR1x1 )      |
+gSuR1x2        |0            |Real part of Neutral Scalar - up quark coupling constant ( gSuR1x2 )      |
+gSuR2x2        |0            |Real part of Neutral Scalar - up quark coupling constant ( gSuR2x2 )      |
+hPlR1x1        |0            |Real part of Charged pseudoscalar - lepton coupling constant ( hPlR1x1 )  |
+hPlR1x2        |0            |Real part of Charged pseudoscalar - lepton coupling constant ( hPlR1x2 )  |
+hPlR2x1        |0            |Real part of Charged pseudoscalar - lepton coupling constant ( hPlR2x1 )  |
+hPlR2x2        |0            |Real part of Charged pseudoscalar - lepton coupling constant ( hPlR2x2 )  |
+hPlI1x1        |0            |Imaginary part of Charged pseudoscalar - lepton coupling constant ( hPlI1x|
+hPlI1x2        |0            |Imaginary part of Charged pseudoscalar - lepton coupling constant ( hPlI1x|
+hPlI2x1        |0            |Imaginary part of Charged pseudoscalar - lepton coupling constant ( hPlI2x|
+hPlI2x2        |0            |Imaginary part of Charged pseudoscalar - lepton coupling constant ( hPlI2x|
+hVqR1x1        |0            |Real part of Charged vector - quark coupling constant ( hVqR1x1 )         |
+hVqR1x2        |0            |Real part of Charged vector - quark coupling constant ( hVqR1x2 )         |
+hVqR2x1        |0            |Real part of Charged vector - quark coupling constant ( hVqR2x1 )         |
+hVqR2x2        |0            |Real part of Charged vector - quark coupling constant ( hVqR2x2 )         |
+hVqI1x1        |0            |Imaginary part of Charged vector - quark coupling constant ( hVqI1x1 )    |
+hVqI1x2        |0            |Imaginary part of Charged vector - quark coupling constant ( hVqI1x2 )    |
+hVqI2x1        |0            |Imaginary part of Charged vector - quark coupling constant ( hVqI2x1 )    |
+hVqI2x2        |0            |Imaginary part of Charged vector - quark coupling constant ( hVqI2x2 )    |
+hAqR1x1        |0            |Real part of Charged axial vector - quark coupling constant ( hAqR1x1 )   |
+hAqR1x2        |0            |Real part of Charged axial vector - quark coupling constant ( hAqR1x2 )   |
+hAqR2x1        |0            |Real part of Charged axial vector - quark coupling constant ( hAqR2x1 )   |
+hAqR2x2        |0            |Real part of Charged axial vector - quark coupling constant ( hAqR2x2 )   |
+hAqI1x1        |0            |Imaginary part of Charged axial vector - quark coupling constant ( hAqI1x1|
+hAqI1x2        |0            |Imaginary part of Charged axial vector - quark coupling constant ( hAqI1x2|
+hAqI2x1        |0            |Imaginary part of Charged axial vector - quark coupling constant ( hAqI2x1|
+hAqI2x2        |0            |Imaginary part of Charged axial vector - quark coupling constant ( hAqI2x2|
+hVlR1x1        |0            |Real part of Charged vector - lepton coupling constant ( hVlR1x1 )        |
+hVlR1x2        |0            |Real part of Charged vector - lepton coupling constant ( hVlR1x2 )        |
+hVlR2x1        |0            |Real part of Charged vector - lepton coupling constant ( hVlR2x1 )        |
+hVlR2x2        |0            |Real part of Charged vector - lepton coupling constant ( hVlR2x2 )        |
+gSuI1x2        |0            |Imaginary part of Neutral Scalar - up quark coupling constant ( gSuI1x2 ) |
+hVlI1x1        |0            |Imaginary part of Charged vector - lepton coupling constant ( hVlI1x1 )   |
+hVlI1x2        |0            |Imaginary part of Charged vector - lepton coupling constant ( hVlI1x2 )   |
+hVlI2x1        |0            |Imaginary part of Charged vector - lepton coupling constant ( hVlI2x1 )   |
+hVlI2x2        |0            |Imaginary part of Charged vector - lepton coupling constant ( hVlI2x2 )   |
+hAlR1x1        |0            |Real part of Charged axial vector - lepton coupling constant ( hAlR1x1 )  |
+hAlR1x2        |0            |Real part of Charged axial vector - lepton coupling constant ( hAlR1x2 )  |
+hAlR2x1        |0            |Real part of Charged axial vector - lepton coupling constant ( hAlR2x1 )  |
+hAlR2x2        |0            |Real part of Charged axial vector - lepton coupling constant ( hAlR2x2 )  |
+hAlI1x1        |0            |Imaginary part of Charged axial vector - lepton coupling constant ( hAlI1x|
+hAlI1x2        |0            |Imaginary part of Charged axial vector - lepton coupling constant ( hAlI1x|
+hAlI2x1        |0            |Imaginary part of Charged axial vector - lepton coupling constant ( hAlI2x|
+hAlI2x2        |0            |Imaginary part of Charged axial vector - lepton coupling constant ( hAlI2x|
+hTqR1x1        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hTqR1x1 |
+hTqR1x2        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hTqR1x2 |
+hTqR2x1        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hTqR2x1 |
+hTqR2x2        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hTqR2x2 |
+hTqI1x1        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hTq|
+hTqI1x2        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hTq|
+hTqI2x1        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hTq|
+hTqI2x2        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hTq|
+hUqR1x1        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hU|
+hUqR1x2        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hU|
+hUqR2x1        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hU|
+hUqR2x2        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hU|
+hUqI1x1        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hUqI1x2        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hUqI2x1        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hUqI2x2        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hYqR1x1        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hYqR1x1 |
+hYqR1x2        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hYqR1x2 |
+hYqR2x1        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hYqR2x1 |
+hYqR2x2        |0            |Real part of Charged Symmetric Tensor - quark coupling constant ( hYqR2x2 |
+hYqI1x1        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hYq|
+hYqI1x2        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hYq|
+hYqI2x1        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hYq|
+hYqI2x2        |0            |Imaginary part of Charged Symmetric Tensor - quark coupling constant ( hYq|
+hZqR1x1        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hZ|
+hZqR1x2        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hZ|
+hZqR2x1        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hZ|
+hZqR2x2        |0            |Real part of Charged axial Symmetric Tensor - quark coupling constant ( hZ|
+hZqI1x1        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hZqI1x2        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hZqI2x1        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hZqI2x2        |0            |Imaginary part of Charged axial Symmetric Tensor - quark coupling constant|
+hTlR1x1        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hTlR1x1|
+hTlR1x2        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hTlR1x2|
+hTlR2x1        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hTlR2x1|
+hTlR2x2        |0            |Real part of Charged Symmetric Tensor - lepton coupling constant ( hTlR2x2|
+hTlI1x1        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hT|
+hTlI1x2        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hT|
+hTlI2x1        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hT|
+hTlI2x2        |0            |Imaginary part of Charged Symmetric Tensor - lepton coupling constant ( hT|
+GG             |1.21977796370|Strong coupling constant   This value will be ignored and calculated from |
+MTA            |1.777        |Mass of tt.                                                               |
+MT             |174.3        |Mass of t.                                                                |
+MB             |4.7          |Mass of b.                                                                |
+MZ             |91.1876      |Mass of phi.                                                              |
+MH             |120          |Mass of H.                                                                |
+MSV            |1000         |Mass of SV.                                                               |
+MSVP           |1000         |Mass of SVP.                                                              |
+MVV            |1000         |Mass of VV.                                                               |
+MVVP           |1000         |Mass of VVP.                                                              |
+MTV            |1000         |Mass of TV.                                                               |
+MTVP           |1000         |Mass of TVP.                                                              |
+%WT            |1.50833649   |Width of t.                                                               |
+%WZ            |2.4952       |Width of Z.                                                               |
+%WW            |2.085        |Width of W.                                                               |
+%WH            |0.00575308848|Width of H.                                                               |
+%WSV           |20           |Width of SV.                                                              |
+%WSVP          |20           |Width of SVP.                                                             |
+%WVV           |20           |Width of VV.                                                              |
+%WVVP          |20           |Width of VVP.                                                             |
+%WTV           |20           |Width of TV.                                                              |
+%WTVP          |20           |Width of TVP.                                                             |
+E              |2.71828182845|The base of the natural logarithm.                                        |
+Pi             |3.14159265358|The circumference of a circle divided by the diameter.                    |

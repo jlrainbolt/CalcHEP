@@ -1,0 +1,181 @@
+BLOCK ModelParameters
+   1      3.134300E-01 # EE
+   2      1.184000E-01 # alfSMZ
+   3      1.000000E+02 # Q
+   4      2.210000E-01 # s12
+   5      4.100000E-02 # s23
+   6      3.500000E-03 # s13
+   7      1.057000E-01 # Mm
+   8      1.777000E+00 # Ml
+   9      1.200000E+00 # McMc
+  10      4.250000E+00 # MbMb
+  11      1.725000E+02 # Mtp
+  12      9.118800E+01 # MZ
+  13      8.038500E+01 # MW
+  14      1.250000E+02 # Mh
+  15      1.590000E+00 # wt
+  16      2.494440E+00 # wZ
+  17      2.088950E+00 # wW
+#
+BLOCK QNUMBERS 21  # G
+ 1  0 # 3*el.charge
+ 2  3 # 2*spin+1
+ 3  8 # color dim
+ 4  0 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 22  # A
+ 1  0 # 3*el.charge
+ 2  3 # 2*spin+1
+ 3  1 # color dim
+ 4  0 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 23  # Z
+ 1  0 # 3*el.charge
+ 2  3 # 2*spin+1
+ 3  1 # color dim
+ 4  0 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 24  # W+
+ 1  3 # 3*el.charge
+ 2  3 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 25  # h
+ 1  0 # 3*el.charge
+ 2  1 # 2*spin+1
+ 3  1 # color dim
+ 4  0 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 11  # e
+ 1  -3 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 12  # ne
+ 1  0 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 13  # m
+ 1  -3 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 14  # nm
+ 1  0 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 15  # l
+ 1  -3 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 16  # nl
+ 1  0 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  1 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 1  # d
+ 1  -1 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 2  # u
+ 1  2 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 3  # s
+ 1  -1 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 4  # c
+ 1  2 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 5  # b
+ 1  -1 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK QNUMBERS 6  # t
+ 1  2 # 3*el.charge
+ 2  2 # 2*spin+1
+ 3  3 # color dim
+ 4  1 # 0={ self-conjugated}
+#
+BLOCK MASS
+ 21  0.000000E+00 # G
+ 22  0.000000E+00 # A
+ 23  9.118800E+01 # Z
+ 24  8.038500E+01 # W+
+ 25  1.250000E+02 # h
+ 11  0.000000E+00 # e
+ 12  0.000000E+00 # ne
+ 13  1.057000E-01 # m
+ 14  0.000000E+00 # nm
+ 15  1.777000E+00 # l
+ 16  0.000000E+00 # nl
+ 1  0.000000E+00 # d
+ 2  0.000000E+00 # u
+ 3  0.000000E+00 # s
+ 4  5.872603E-01 # c
+ 5  3.198581E+00 # b
+ 6  1.725000E+02 # t
+#
+DECAY 23  2.524303E+00  # Z
+   3.436415E-02   2   11 -11  #  e,E 
+   6.793033E-02   2   12 -12  #  ne,Ne 
+   3.436388E-02   2   13 -13  #  m,M 
+   6.793033E-02   2   14 -14  #  nm,Nm 
+   3.428679E-02   2   15 -15  #  l,L 
+   6.793033E-02   2   16 -16  #  nl,Nl 
+   1.522238E-01   2   1 -1  #  d,D 
+   1.186576E-01   2   2 -2  #  u,U 
+   1.522238E-01   2   3 -3  #  s,S 
+   1.186317E-01   2   4 -4  #  c,C 
+   1.514574E-01   2   5 -5  #  b,B 
+
+#
+DECAY 24  2.114158E+00  # W+
+   1.111245E-01   2   -11 12  #  E,ne 
+   1.111241E-01   2   -13 14  #  M,nm 
+   1.110430E-01   2   -15 16  #  L,nl 
+   3.170871E-01   2   -1 2  #  D,u 
+   1.628209E-02   2   2 -3  #  u,S 
+   1.627416E-02   2   -1 4  #  D,c 
+   3.165020E-01   2   -3 4  #  S,c 
+   4.073667E-06   2   2 -5  #  u,B 
+   5.589529E-04   2   4 -5  #  c,B 
+
+#
+DECAY 25  3.824175E-03  # h
+   2.878124E-02   2   23 23  #  Z,Z 
+   2.308916E-01   2   24 -24  #  W+,W- 
+   2.477614E-04   2   13 -13  #  m,M 
+   6.994127E-02   2   15 -15  #  l,L 
+   2.193002E-02   2   4 -4  #  c,C 
+   6.482080E-01   2   5 -5  #  b,B 
+
+#
+DECAY 6  1.527082E+00  # t
+   3.199945E-05   2   24 1  #  W+,d 
+   5.041841E-04   2   24 3  #  W+,s 
+   9.994637E-01   2   24 5  #  W+,b 
+
+#

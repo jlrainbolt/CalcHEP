@@ -1,0 +1,9 @@
+#CalcHEP  3.6.29
+#Type 1 -> 4
+#Initial_state  P1=0
+#PROCESS   23(Z) -> -24(W-) 25(h) -13(M) 14(nm)
+#MASSES  9.1188000000E+01 8.0385000000E+01 1.2500000000E+02 1.0570000000E-01 0.0000000000E+00
+#Cross_section(Width) 0.000000E+00
+#Number_of_events          0
+#Sum_of_weights   0.0000E+00   0.0000E+00 
+#Events       P2_1 [Gev]        P2_2 [Gev]        P2_3 [Gev]        P3_1 [Gev]        P3_2 [Gev]        P3_3 [Gev]        P4_1 [Gev]        P4_2 [Gev]        P4_3 [Gev]        P5_1 [Gev]        P5_2 [Gev]        P5_3 [Gev]   

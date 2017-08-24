@@ -1,0 +1,494 @@
+Standard Model plus DY
+ Constraints
+  Name         |> Expression                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <|
+%*slhaFound    |1+access("vars4.lha", 0)                                                                                       %Check whether LHA file is present.
+%*rdSLHA       |if(slhaFound,slhaRead("vars4.lha", 0),-1)                                                                      %Read LHA file.
+%cabi          |if(slhaFound,if(slhaValExists("CKMBLOCK",1,1),slhaVal("CKMBLOCK",0,1,1),cabiDef),cabiDef)                      %Cabibbo angle                                     
+%aEWM1         |if(slhaFound,if(slhaValExists("SMINPUTS",1,1),slhaVal("SMINPUTS",0,1,1),aEWM1Def),aEWM1Def)                    %Inverse of the electroweak coupling constant      
+%Gf            |if(slhaFound,if(slhaValExists("SMINPUTS",1,2),slhaVal("SMINPUTS",0,1,2),GfDef),GfDef)                          %Fermi constant                                    
+%aS            |if(slhaFound,if(slhaValExists("SMINPUTS",1,3),slhaVal("SMINPUTS",0,1,3),aSDef),aSDef)                          %Strong coupling constant at the Z pole.           
+%ymb           |if(slhaFound,if(slhaValExists("YUKAWA",1,5),slhaVal("YUKAWA",0,1,5),ymbDef),ymbDef)                            %Bottom Yukawa mass                                
+%ymt           |if(slhaFound,if(slhaValExists("YUKAWA",1,6),slhaVal("YUKAWA",0,1,6),ymtDef),ymtDef)                            %Top Yukawa mass                                   
+%ymtau         |if(slhaFound,if(slhaValExists("YUKAWA",1,15),slhaVal("YUKAWA",0,1,15),ymtauDef),ymtauDef)                      %Tau Yukawa mass                                   
+%gSg           |if(slhaFound,if(slhaValExists("FRBlock",1,1),slhaVal("FRBlock",0,1,1),gSgDef),gSgDef)                          %Neutral Scalar - gluon coupling constant          
+%gVg           |if(slhaFound,if(slhaValExists("FRBlock",1,2),slhaVal("FRBlock",0,1,2),gVgDef),gVgDef)                          %Neutral Vector - gluon coupling constant          
+%gTg           |if(slhaFound,if(slhaValExists("FRBlock",1,3),slhaVal("FRBlock",0,1,3),gTgDef),gTgDef)                          %Neutral Tensor - gluon coupling constant          
+%gPuR1x1       |if(slhaFound,if(slhaValExists("FRBlock10",2,1,1),slhaVal("FRBlock10",0,2,1,1),gPuR1x1Def),gPuR1x1Def)           %Real part of Neutral Pseudoscalar - up quark coupl
+%gPuR1x2       |if(slhaFound,if(slhaValExists("FRBlock10",2,1,2),slhaVal("FRBlock10",0,2,1,2),gPuR1x2Def),gPuR1x2Def)           %Real part of Neutral Pseudoscalar - up quark coupl
+%gPuR2x2       |if(slhaFound,if(slhaValExists("FRBlock10",2,2,2),slhaVal("FRBlock10",0,2,2,2),gPuR2x2Def),gPuR2x2Def)           %Real part of Neutral Pseudoscalar - up quark coupl
+%hUlR1x1       |if(slhaFound,if(slhaValExists("FRBlock100",2,1,1),slhaVal("FRBlock100",0,2,1,1),hUlR1x1Def),hUlR1x1Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hUlR1x2       |if(slhaFound,if(slhaValExists("FRBlock100",2,1,2),slhaVal("FRBlock100",0,2,1,2),hUlR1x2Def),hUlR1x2Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hUlR2x1       |if(slhaFound,if(slhaValExists("FRBlock100",2,2,1),slhaVal("FRBlock100",0,2,2,1),hUlR2x1Def),hUlR2x1Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hUlR2x2       |if(slhaFound,if(slhaValExists("FRBlock100",2,2,2),slhaVal("FRBlock100",0,2,2,2),hUlR2x2Def),hUlR2x2Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hUlI1x1       |if(slhaFound,if(slhaValExists("FRBlock101",2,1,1),slhaVal("FRBlock101",0,2,1,1),hUlI1x1Def),hUlI1x1Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hUlI1x2       |if(slhaFound,if(slhaValExists("FRBlock101",2,1,2),slhaVal("FRBlock101",0,2,1,2),hUlI1x2Def),hUlI1x2Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hUlI2x1       |if(slhaFound,if(slhaValExists("FRBlock101",2,2,1),slhaVal("FRBlock101",0,2,2,1),hUlI2x1Def),hUlI2x1Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hUlI2x2       |if(slhaFound,if(slhaValExists("FRBlock101",2,2,2),slhaVal("FRBlock101",0,2,2,2),hUlI2x2Def),hUlI2x2Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hYlR1x1       |if(slhaFound,if(slhaValExists("FRBlock103",2,1,1),slhaVal("FRBlock103",0,2,1,1),hYlR1x1Def),hYlR1x1Def)           %Real part of Charged Symmetric Tensor - lepton cou
+%hYlR1x2       |if(slhaFound,if(slhaValExists("FRBlock103",2,1,2),slhaVal("FRBlock103",0,2,1,2),hYlR1x2Def),hYlR1x2Def)           %Real part of Charged Symmetric Tensor - lepton cou
+%hYlR2x1       |if(slhaFound,if(slhaValExists("FRBlock103",2,2,1),slhaVal("FRBlock103",0,2,2,1),hYlR2x1Def),hYlR2x1Def)           %Real part of Charged Symmetric Tensor - lepton cou
+%hYlR2x2       |if(slhaFound,if(slhaValExists("FRBlock103",2,2,2),slhaVal("FRBlock103",0,2,2,2),hYlR2x2Def),hYlR2x2Def)           %Real part of Charged Symmetric Tensor - lepton cou
+%hYlI1x1       |if(slhaFound,if(slhaValExists("FRBlock104",2,1,1),slhaVal("FRBlock104",0,2,1,1),hYlI1x1Def),hYlI1x1Def)           %Imaginary part of Charged Symmetric Tensor - lepto
+%hYlI1x2       |if(slhaFound,if(slhaValExists("FRBlock104",2,1,2),slhaVal("FRBlock104",0,2,1,2),hYlI1x2Def),hYlI1x2Def)           %Imaginary part of Charged Symmetric Tensor - lepto
+%hYlI2x1       |if(slhaFound,if(slhaValExists("FRBlock104",2,2,1),slhaVal("FRBlock104",0,2,2,1),hYlI2x1Def),hYlI2x1Def)           %Imaginary part of Charged Symmetric Tensor - lepto
+%hYlI2x2       |if(slhaFound,if(slhaValExists("FRBlock104",2,2,2),slhaVal("FRBlock104",0,2,2,2),hYlI2x2Def),hYlI2x2Def)           %Imaginary part of Charged Symmetric Tensor - lepto
+%hZlR1x1       |if(slhaFound,if(slhaValExists("FRBlock106",2,1,1),slhaVal("FRBlock106",0,2,1,1),hZlR1x1Def),hZlR1x1Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hZlR1x2       |if(slhaFound,if(slhaValExists("FRBlock106",2,1,2),slhaVal("FRBlock106",0,2,1,2),hZlR1x2Def),hZlR1x2Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hZlR2x1       |if(slhaFound,if(slhaValExists("FRBlock106",2,2,1),slhaVal("FRBlock106",0,2,2,1),hZlR2x1Def),hZlR2x1Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hZlR2x2       |if(slhaFound,if(slhaValExists("FRBlock106",2,2,2),slhaVal("FRBlock106",0,2,2,2),hZlR2x2Def),hZlR2x2Def)           %Real part of Charged axial Symmetric Tensor - lept
+%hZlI1x1       |if(slhaFound,if(slhaValExists("FRBlock107",2,1,1),slhaVal("FRBlock107",0,2,1,1),hZlI1x1Def),hZlI1x1Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hZlI1x2       |if(slhaFound,if(slhaValExists("FRBlock107",2,1,2),slhaVal("FRBlock107",0,2,1,2),hZlI1x2Def),hZlI1x2Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hZlI2x1       |if(slhaFound,if(slhaValExists("FRBlock107",2,2,1),slhaVal("FRBlock107",0,2,2,1),hZlI2x1Def),hZlI2x1Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%hZlI2x2       |if(slhaFound,if(slhaValExists("FRBlock107",2,2,2),slhaVal("FRBlock107",0,2,2,2),hZlI2x2Def),hZlI2x2Def)           %Imaginary part of Charged axial Symmetric Tensor -
+%gPuI1x2       |if(slhaFound,if(slhaValExists("FRBlock11",2,1,2),slhaVal("FRBlock11",0,2,1,2),gPuI1x2Def),gPuI1x2Def)             %Imaginary part of Neutral Pseudoscalar - up quark 
+%gSdR1x1       |if(slhaFound,if(slhaValExists("FRBlock13",2,1,1),slhaVal("FRBlock13",0,2,1,1),gSdR1x1Def),gSdR1x1Def)             %Real part of Neutral Scalar - down quark coupling 
+%gSdR1x2       |if(slhaFound,if(slhaValExists("FRBlock13",2,1,2),slhaVal("FRBlock13",0,2,1,2),gSdR1x2Def),gSdR1x2Def)             %Real part of Neutral Scalar - down quark coupling 
+%gSdR2x2       |if(slhaFound,if(slhaValExists("FRBlock13",2,2,2),slhaVal("FRBlock13",0,2,2,2),gSdR2x2Def),gSdR2x2Def)             %Real part of Neutral Scalar - down quark coupling 
+%gSdI1x2       |if(slhaFound,if(slhaValExists("FRBlock14",2,1,2),slhaVal("FRBlock14",0,2,1,2),gSdI1x2Def),gSdI1x2Def)             %Imaginary part of Neutral Scalar - down quark coup
+%gPdR1x1       |if(slhaFound,if(slhaValExists("FRBlock16",2,1,1),slhaVal("FRBlock16",0,2,1,1),gPdR1x1Def),gPdR1x1Def)             %Real part of Neutral Pseudoscalar - down quark cou
+%gPdR1x2       |if(slhaFound,if(slhaValExists("FRBlock16",2,1,2),slhaVal("FRBlock16",0,2,1,2),gPdR1x2Def),gPdR1x2Def)             %Real part of Neutral Pseudoscalar - down quark cou
+%gPdR2x2       |if(slhaFound,if(slhaValExists("FRBlock16",2,2,2),slhaVal("FRBlock16",0,2,2,2),gPdR2x2Def),gPdR2x2Def)             %Real part of Neutral Pseudoscalar - down quark cou
+%gPdI1x2       |if(slhaFound,if(slhaValExists("FRBlock17",2,1,2),slhaVal("FRBlock17",0,2,1,2),gPdI1x2Def),gPdI1x2Def)             %Imaginary part of Neutral Pseudoscalar - down quar
+%gSlR1x1       |if(slhaFound,if(slhaValExists("FRBlock19",2,1,1),slhaVal("FRBlock19",0,2,1,1),gSlR1x1Def),gSlR1x1Def)             %Real part of Neutral Scalar - charged lepton coupl
+%gSlR1x2       |if(slhaFound,if(slhaValExists("FRBlock19",2,1,2),slhaVal("FRBlock19",0,2,1,2),gSlR1x2Def),gSlR1x2Def)             %Real part of Neutral Scalar - charged lepton coupl
+%gSlR2x2       |if(slhaFound,if(slhaValExists("FRBlock19",2,2,2),slhaVal("FRBlock19",0,2,2,2),gSlR2x2Def),gSlR2x2Def)             %Real part of Neutral Scalar - charged lepton coupl
+%gSlI1x2       |if(slhaFound,if(slhaValExists("FRBlock20",2,1,2),slhaVal("FRBlock20",0,2,1,2),gSlI1x2Def),gSlI1x2Def)             %Imaginary part of Neutral Scalar - charged lepton 
+%gPlR1x1       |if(slhaFound,if(slhaValExists("FRBlock22",2,1,1),slhaVal("FRBlock22",0,2,1,1),gPlR1x1Def),gPlR1x1Def)             %Real part of Neutral Pseudoscalar - charged lepton
+%gPlR1x2       |if(slhaFound,if(slhaValExists("FRBlock22",2,1,2),slhaVal("FRBlock22",0,2,1,2),gPlR1x2Def),gPlR1x2Def)             %Real part of Neutral Pseudoscalar - charged lepton
+%gPlR2x2       |if(slhaFound,if(slhaValExists("FRBlock22",2,2,2),slhaVal("FRBlock22",0,2,2,2),gPlR2x2Def),gPlR2x2Def)             %Real part of Neutral Pseudoscalar - charged lepton
+%gPlI1x2       |if(slhaFound,if(slhaValExists("FRBlock23",2,1,2),slhaVal("FRBlock23",0,2,1,2),gPlI1x2Def),gPlI1x2Def)             %Imaginary part of Neutral Pseudoscalar - charged l
+%gVuR1x1       |if(slhaFound,if(slhaValExists("FRBlock25",2,1,1),slhaVal("FRBlock25",0,2,1,1),gVuR1x1Def),gVuR1x1Def)             %Real part of Neutral Vector - up quark coupling co
+%gVuR1x2       |if(slhaFound,if(slhaValExists("FRBlock25",2,1,2),slhaVal("FRBlock25",0,2,1,2),gVuR1x2Def),gVuR1x2Def)             %Real part of Neutral Vector - up quark coupling co
+%gVuR2x2       |if(slhaFound,if(slhaValExists("FRBlock25",2,2,2),slhaVal("FRBlock25",0,2,2,2),gVuR2x2Def),gVuR2x2Def)             %Real part of Neutral Vector - up quark coupling co
+%gVuI1x2       |if(slhaFound,if(slhaValExists("FRBlock26",2,1,2),slhaVal("FRBlock26",0,2,1,2),gVuI1x2Def),gVuI1x2Def)             %Imaginary part of Neutral Vector - up quark coupli
+%gAuR1x1       |if(slhaFound,if(slhaValExists("FRBlock28",2,1,1),slhaVal("FRBlock28",0,2,1,1),gAuR1x1Def),gAuR1x1Def)             %Real part of Neutral axial vector - up quark coupl
+%gAuR1x2       |if(slhaFound,if(slhaValExists("FRBlock28",2,1,2),slhaVal("FRBlock28",0,2,1,2),gAuR1x2Def),gAuR1x2Def)             %Real part of Neutral axial vector - up quark coupl
+%gAuR2x2       |if(slhaFound,if(slhaValExists("FRBlock28",2,2,2),slhaVal("FRBlock28",0,2,2,2),gAuR2x2Def),gAuR2x2Def)             %Real part of Neutral axial vector - up quark coupl
+%gAuI1x2       |if(slhaFound,if(slhaValExists("FRBlock29",2,1,2),slhaVal("FRBlock29",0,2,1,2),gAuI1x2Def),gAuI1x2Def)             %Imaginary part of Neutral axial vector - up quark 
+%gVdR1x1       |if(slhaFound,if(slhaValExists("FRBlock31",2,1,1),slhaVal("FRBlock31",0,2,1,1),gVdR1x1Def),gVdR1x1Def)             %Real part of Neutral vector - down quark coupling 
+%gVdR1x2       |if(slhaFound,if(slhaValExists("FRBlock31",2,1,2),slhaVal("FRBlock31",0,2,1,2),gVdR1x2Def),gVdR1x2Def)             %Real part of Neutral vector - down quark coupling 
+%gVdR2x2       |if(slhaFound,if(slhaValExists("FRBlock31",2,2,2),slhaVal("FRBlock31",0,2,2,2),gVdR2x2Def),gVdR2x2Def)             %Real part of Neutral vector - down quark coupling 
+%gVdI1x2       |if(slhaFound,if(slhaValExists("FRBlock32",2,1,2),slhaVal("FRBlock32",0,2,1,2),gVdI1x2Def),gVdI1x2Def)             %Imaginary part of Neutral vector - down quark coup
+%gAdR1x1       |if(slhaFound,if(slhaValExists("FRBlock34",2,1,1),slhaVal("FRBlock34",0,2,1,1),gAdR1x1Def),gAdR1x1Def)             %Real part of Neutral axial vector - down quark cou
+%gAdR1x2       |if(slhaFound,if(slhaValExists("FRBlock34",2,1,2),slhaVal("FRBlock34",0,2,1,2),gAdR1x2Def),gAdR1x2Def)             %Real part of Neutral axial vector - down quark cou
+%gAdR2x2       |if(slhaFound,if(slhaValExists("FRBlock34",2,2,2),slhaVal("FRBlock34",0,2,2,2),gAdR2x2Def),gAdR2x2Def)             %Real part of Neutral axial vector - down quark cou
+%gAdI1x2       |if(slhaFound,if(slhaValExists("FRBlock35",2,1,2),slhaVal("FRBlock35",0,2,1,2),gAdI1x2Def),gAdI1x2Def)             %Imaginary part of Neutral axial vector - down quar
+%gVlR1x1       |if(slhaFound,if(slhaValExists("FRBlock37",2,1,1),slhaVal("FRBlock37",0,2,1,1),gVlR1x1Def),gVlR1x1Def)             %Real part of Neutral vector - charged lepton coupl
+%gVlR1x2       |if(slhaFound,if(slhaValExists("FRBlock37",2,1,2),slhaVal("FRBlock37",0,2,1,2),gVlR1x2Def),gVlR1x2Def)             %Real part of Neutral vector - charged lepton coupl
+%gVlR2x2       |if(slhaFound,if(slhaValExists("FRBlock37",2,2,2),slhaVal("FRBlock37",0,2,2,2),gVlR2x2Def),gVlR2x2Def)             %Real part of Neutral vector - charged lepton coupl
+%gVlI1x2       |if(slhaFound,if(slhaValExists("FRBlock38",2,1,2),slhaVal("FRBlock38",0,2,1,2),gVlI1x2Def),gVlI1x2Def)             %Imaginary part of Neutral vector - charged lepton 
+%gAlR1x1       |if(slhaFound,if(slhaValExists("FRBlock40",2,1,1),slhaVal("FRBlock40",0,2,1,1),gAlR1x1Def),gAlR1x1Def)             %Real part of Neutral axial vector - charged lepton
+%gAlR1x2       |if(slhaFound,if(slhaValExists("FRBlock40",2,1,2),slhaVal("FRBlock40",0,2,1,2),gAlR1x2Def),gAlR1x2Def)             %Real part of Neutral axial vector - charged lepton
+%gAlR2x2       |if(slhaFound,if(slhaValExists("FRBlock40",2,2,2),slhaVal("FRBlock40",0,2,2,2),gAlR2x2Def),gAlR2x2Def)             %Real part of Neutral axial vector - charged lepton
+%gAlI1x2       |if(slhaFound,if(slhaValExists("FRBlock41",2,1,2),slhaVal("FRBlock41",0,2,1,2),gAlI1x2Def),gAlI1x2Def)             %Imaginary part of Neutral axial vector - charged l
+%gTuR1x1       |if(slhaFound,if(slhaValExists("FRBlock43",2,1,1),slhaVal("FRBlock43",0,2,1,1),gTuR1x1Def),gTuR1x1Def)             %Real part of Neutral Symmetric Tensor - up quark c
+%gTuR1x2       |if(slhaFound,if(slhaValExists("FRBlock43",2,1,2),slhaVal("FRBlock43",0,2,1,2),gTuR1x2Def),gTuR1x2Def)             %Real part of Neutral Symmetric Tensor - up quark c
+%gTuR2x1       |if(slhaFound,if(slhaValExists("FRBlock43",2,2,1),slhaVal("FRBlock43",0,2,2,1),gTuR2x1Def),gTuR2x1Def)             %Real part of Neutral Symmetric Tensor - up quark c
+%gTuR2x2       |if(slhaFound,if(slhaValExists("FRBlock43",2,2,2),slhaVal("FRBlock43",0,2,2,2),gTuR2x2Def),gTuR2x2Def)             %Real part of Neutral Symmetric Tensor - up quark c
+%gTuI1x1       |if(slhaFound,if(slhaValExists("FRBlock44",2,1,1),slhaVal("FRBlock44",0,2,1,1),gTuI1x1Def),gTuI1x1Def)             %Imaginary part of Neutral Symmetric Tensor - up qu
+%gTuI1x2       |if(slhaFound,if(slhaValExists("FRBlock44",2,1,2),slhaVal("FRBlock44",0,2,1,2),gTuI1x2Def),gTuI1x2Def)             %Imaginary part of Neutral Symmetric Tensor - up qu
+%gTuI2x1       |if(slhaFound,if(slhaValExists("FRBlock44",2,2,1),slhaVal("FRBlock44",0,2,2,1),gTuI2x1Def),gTuI2x1Def)             %Imaginary part of Neutral Symmetric Tensor - up qu
+%gTuI2x2       |if(slhaFound,if(slhaValExists("FRBlock44",2,2,2),slhaVal("FRBlock44",0,2,2,2),gTuI2x2Def),gTuI2x2Def)             %Imaginary part of Neutral Symmetric Tensor - up qu
+%gUuR1x1       |if(slhaFound,if(slhaValExists("FRBlock46",2,1,1),slhaVal("FRBlock46",0,2,1,1),gUuR1x1Def),gUuR1x1Def)             %Real part of Neutral axial Symmetric Tensor - up q
+%gUuR1x2       |if(slhaFound,if(slhaValExists("FRBlock46",2,1,2),slhaVal("FRBlock46",0,2,1,2),gUuR1x2Def),gUuR1x2Def)             %Real part of Neutral axial Symmetric Tensor - up q
+%gUuR2x1       |if(slhaFound,if(slhaValExists("FRBlock46",2,2,1),slhaVal("FRBlock46",0,2,2,1),gUuR2x1Def),gUuR2x1Def)             %Real part of Neutral axial Symmetric Tensor - up q
+%gUuR2x2       |if(slhaFound,if(slhaValExists("FRBlock46",2,2,2),slhaVal("FRBlock46",0,2,2,2),gUuR2x2Def),gUuR2x2Def)             %Real part of Neutral axial Symmetric Tensor - up q
+%gUuI1x1       |if(slhaFound,if(slhaValExists("FRBlock47",2,1,1),slhaVal("FRBlock47",0,2,1,1),gUuI1x1Def),gUuI1x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUuI1x2       |if(slhaFound,if(slhaValExists("FRBlock47",2,1,2),slhaVal("FRBlock47",0,2,1,2),gUuI1x2Def),gUuI1x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUuI2x1       |if(slhaFound,if(slhaValExists("FRBlock47",2,2,1),slhaVal("FRBlock47",0,2,2,1),gUuI2x1Def),gUuI2x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUuI2x2       |if(slhaFound,if(slhaValExists("FRBlock47",2,2,2),slhaVal("FRBlock47",0,2,2,2),gUuI2x2Def),gUuI2x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gTdR1x1       |if(slhaFound,if(slhaValExists("FRBlock49",2,1,1),slhaVal("FRBlock49",0,2,1,1),gTdR1x1Def),gTdR1x1Def)             %Real part of Neutral Symmetric Tensor - down quark
+%gTdR1x2       |if(slhaFound,if(slhaValExists("FRBlock49",2,1,2),slhaVal("FRBlock49",0,2,1,2),gTdR1x2Def),gTdR1x2Def)             %Real part of Neutral Symmetric Tensor - down quark
+%gTdR2x1       |if(slhaFound,if(slhaValExists("FRBlock49",2,2,1),slhaVal("FRBlock49",0,2,2,1),gTdR2x1Def),gTdR2x1Def)             %Real part of Neutral Symmetric Tensor - down quark
+%gTdR2x2       |if(slhaFound,if(slhaValExists("FRBlock49",2,2,2),slhaVal("FRBlock49",0,2,2,2),gTdR2x2Def),gTdR2x2Def)             %Real part of Neutral Symmetric Tensor - down quark
+%gTdI1x1       |if(slhaFound,if(slhaValExists("FRBlock50",2,1,1),slhaVal("FRBlock50",0,2,1,1),gTdI1x1Def),gTdI1x1Def)             %Imaginary part of Neutral Symmetric Tensor - down 
+%gTdI1x2       |if(slhaFound,if(slhaValExists("FRBlock50",2,1,2),slhaVal("FRBlock50",0,2,1,2),gTdI1x2Def),gTdI1x2Def)             %Imaginary part of Neutral Symmetric Tensor - down 
+%gTdI2x1       |if(slhaFound,if(slhaValExists("FRBlock50",2,2,1),slhaVal("FRBlock50",0,2,2,1),gTdI2x1Def),gTdI2x1Def)             %Imaginary part of Neutral Symmetric Tensor - down 
+%gTdI2x2       |if(slhaFound,if(slhaValExists("FRBlock50",2,2,2),slhaVal("FRBlock50",0,2,2,2),gTdI2x2Def),gTdI2x2Def)             %Imaginary part of Neutral Symmetric Tensor - down 
+%gUdR1x1       |if(slhaFound,if(slhaValExists("FRBlock52",2,1,1),slhaVal("FRBlock52",0,2,1,1),gUdR1x1Def),gUdR1x1Def)             %Real part of Neutral axial Symmetric Tensor - down
+%gUdR1x2       |if(slhaFound,if(slhaValExists("FRBlock52",2,1,2),slhaVal("FRBlock52",0,2,1,2),gUdR1x2Def),gUdR1x2Def)             %Real part of Neutral axial Symmetric Tensor - down
+%gUdR2x1       |if(slhaFound,if(slhaValExists("FRBlock52",2,2,1),slhaVal("FRBlock52",0,2,2,1),gUdR2x1Def),gUdR2x1Def)             %Real part of Neutral axial Symmetric Tensor - down
+%gUdR2x2       |if(slhaFound,if(slhaValExists("FRBlock52",2,2,2),slhaVal("FRBlock52",0,2,2,2),gUdR2x2Def),gUdR2x2Def)             %Real part of Neutral axial Symmetric Tensor - down
+%gUdI1x1       |if(slhaFound,if(slhaValExists("FRBlock53",2,1,1),slhaVal("FRBlock53",0,2,1,1),gUdI1x1Def),gUdI1x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUdI1x2       |if(slhaFound,if(slhaValExists("FRBlock53",2,1,2),slhaVal("FRBlock53",0,2,1,2),gUdI1x2Def),gUdI1x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUdI2x1       |if(slhaFound,if(slhaValExists("FRBlock53",2,2,1),slhaVal("FRBlock53",0,2,2,1),gUdI2x1Def),gUdI2x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUdI2x2       |if(slhaFound,if(slhaValExists("FRBlock53",2,2,2),slhaVal("FRBlock53",0,2,2,2),gUdI2x2Def),gUdI2x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gTlR1x1       |if(slhaFound,if(slhaValExists("FRBlock55",2,1,1),slhaVal("FRBlock55",0,2,1,1),gTlR1x1Def),gTlR1x1Def)             %Real part of Neutral Symmetric Tensor - charged le
+%gTlR1x2       |if(slhaFound,if(slhaValExists("FRBlock55",2,1,2),slhaVal("FRBlock55",0,2,1,2),gTlR1x2Def),gTlR1x2Def)             %Real part of Neutral Symmetric Tensor - charged le
+%gTlR2x1       |if(slhaFound,if(slhaValExists("FRBlock55",2,2,1),slhaVal("FRBlock55",0,2,2,1),gTlR2x1Def),gTlR2x1Def)             %Real part of Neutral Symmetric Tensor - charged le
+%gTlR2x2       |if(slhaFound,if(slhaValExists("FRBlock55",2,2,2),slhaVal("FRBlock55",0,2,2,2),gTlR2x2Def),gTlR2x2Def)             %Real part of Neutral Symmetric Tensor - charged le
+%gTlI1x1       |if(slhaFound,if(slhaValExists("FRBlock56",2,1,1),slhaVal("FRBlock56",0,2,1,1),gTlI1x1Def),gTlI1x1Def)             %Imaginary part of Neutral Symmetric Tensor - charg
+%gTlI1x2       |if(slhaFound,if(slhaValExists("FRBlock56",2,1,2),slhaVal("FRBlock56",0,2,1,2),gTlI1x2Def),gTlI1x2Def)             %Imaginary part of Neutral Symmetric Tensor - charg
+%gTlI2x1       |if(slhaFound,if(slhaValExists("FRBlock56",2,2,1),slhaVal("FRBlock56",0,2,2,1),gTlI2x1Def),gTlI2x1Def)             %Imaginary part of Neutral Symmetric Tensor - charg
+%gTlI2x2       |if(slhaFound,if(slhaValExists("FRBlock56",2,2,2),slhaVal("FRBlock56",0,2,2,2),gTlI2x2Def),gTlI2x2Def)             %Imaginary part of Neutral Symmetric Tensor - charg
+%gUlR1x1       |if(slhaFound,if(slhaValExists("FRBlock58",2,1,1),slhaVal("FRBlock58",0,2,1,1),gUlR1x1Def),gUlR1x1Def)             %Real part of Neutral axial Symmetric Tensor - char
+%gUlR1x2       |if(slhaFound,if(slhaValExists("FRBlock58",2,1,2),slhaVal("FRBlock58",0,2,1,2),gUlR1x2Def),gUlR1x2Def)             %Real part of Neutral axial Symmetric Tensor - char
+%gUlR2x1       |if(slhaFound,if(slhaValExists("FRBlock58",2,2,1),slhaVal("FRBlock58",0,2,2,1),gUlR2x1Def),gUlR2x1Def)             %Real part of Neutral axial Symmetric Tensor - char
+%gUlR2x2       |if(slhaFound,if(slhaValExists("FRBlock58",2,2,2),slhaVal("FRBlock58",0,2,2,2),gUlR2x2Def),gUlR2x2Def)             %Real part of Neutral axial Symmetric Tensor - char
+%gUlI1x1       |if(slhaFound,if(slhaValExists("FRBlock59",2,1,1),slhaVal("FRBlock59",0,2,1,1),gUlI1x1Def),gUlI1x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUlI1x2       |if(slhaFound,if(slhaValExists("FRBlock59",2,1,2),slhaVal("FRBlock59",0,2,1,2),gUlI1x2Def),gUlI1x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUlI2x1       |if(slhaFound,if(slhaValExists("FRBlock59",2,2,1),slhaVal("FRBlock59",0,2,2,1),gUlI2x1Def),gUlI2x1Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%gUlI2x2       |if(slhaFound,if(slhaValExists("FRBlock59",2,2,2),slhaVal("FRBlock59",0,2,2,2),gUlI2x2Def),gUlI2x2Def)             %Imaginary part of Neutral axial Symmetric Tensor -
+%hSqR1x1       |if(slhaFound,if(slhaValExists("FRBlock61",2,1,1),slhaVal("FRBlock61",0,2,1,1),hSqR1x1Def),hSqR1x1Def)             %Real part of Charged scalar - quark coupling const
+%hSqR1x2       |if(slhaFound,if(slhaValExists("FRBlock61",2,1,2),slhaVal("FRBlock61",0,2,1,2),hSqR1x2Def),hSqR1x2Def)             %Real part of Charged scalar - quark coupling const
+%hSqR2x1       |if(slhaFound,if(slhaValExists("FRBlock61",2,2,1),slhaVal("FRBlock61",0,2,2,1),hSqR2x1Def),hSqR2x1Def)             %Real part of Charged scalar - quark coupling const
+%hSqR2x2       |if(slhaFound,if(slhaValExists("FRBlock61",2,2,2),slhaVal("FRBlock61",0,2,2,2),hSqR2x2Def),hSqR2x2Def)             %Real part of Charged scalar - quark coupling const
+%hSqI1x1       |if(slhaFound,if(slhaValExists("FRBlock62",2,1,1),slhaVal("FRBlock62",0,2,1,1),hSqI1x1Def),hSqI1x1Def)             %Imaginary part of Charged scalar - quark coupling 
+%hSqI1x2       |if(slhaFound,if(slhaValExists("FRBlock62",2,1,2),slhaVal("FRBlock62",0,2,1,2),hSqI1x2Def),hSqI1x2Def)             %Imaginary part of Charged scalar - quark coupling 
+%hSqI2x1       |if(slhaFound,if(slhaValExists("FRBlock62",2,2,1),slhaVal("FRBlock62",0,2,2,1),hSqI2x1Def),hSqI2x1Def)             %Imaginary part of Charged scalar - quark coupling 
+%hSqI2x2       |if(slhaFound,if(slhaValExists("FRBlock62",2,2,2),slhaVal("FRBlock62",0,2,2,2),hSqI2x2Def),hSqI2x2Def)             %Imaginary part of Charged scalar - quark coupling 
+%hPqR1x1       |if(slhaFound,if(slhaValExists("FRBlock64",2,1,1),slhaVal("FRBlock64",0,2,1,1),hPqR1x1Def),hPqR1x1Def)             %Real part of Charged pseudoscalar - quark coupling
+%hPqR1x2       |if(slhaFound,if(slhaValExists("FRBlock64",2,1,2),slhaVal("FRBlock64",0,2,1,2),hPqR1x2Def),hPqR1x2Def)             %Real part of Charged pseudoscalar - quark coupling
+%hPqR2x1       |if(slhaFound,if(slhaValExists("FRBlock64",2,2,1),slhaVal("FRBlock64",0,2,2,1),hPqR2x1Def),hPqR2x1Def)             %Real part of Charged pseudoscalar - quark coupling
+%hPqR2x2       |if(slhaFound,if(slhaValExists("FRBlock64",2,2,2),slhaVal("FRBlock64",0,2,2,2),hPqR2x2Def),hPqR2x2Def)             %Real part of Charged pseudoscalar - quark coupling
+%hPqI1x1       |if(slhaFound,if(slhaValExists("FRBlock65",2,1,1),slhaVal("FRBlock65",0,2,1,1),hPqI1x1Def),hPqI1x1Def)             %Imaginary part of Charged pseudoscalar - quark cou
+%hPqI1x2       |if(slhaFound,if(slhaValExists("FRBlock65",2,1,2),slhaVal("FRBlock65",0,2,1,2),hPqI1x2Def),hPqI1x2Def)             %Imaginary part of Charged pseudoscalar - quark cou
+%hPqI2x1       |if(slhaFound,if(slhaValExists("FRBlock65",2,2,1),slhaVal("FRBlock65",0,2,2,1),hPqI2x1Def),hPqI2x1Def)             %Imaginary part of Charged pseudoscalar - quark cou
+%hPqI2x2       |if(slhaFound,if(slhaValExists("FRBlock65",2,2,2),slhaVal("FRBlock65",0,2,2,2),hPqI2x2Def),hPqI2x2Def)             %Imaginary part of Charged pseudoscalar - quark cou
+%hSlR1x1       |if(slhaFound,if(slhaValExists("FRBlock67",2,1,1),slhaVal("FRBlock67",0,2,1,1),hSlR1x1Def),hSlR1x1Def)             %Real part of Charged scalar - lepton coupling cons
+%hSlR1x2       |if(slhaFound,if(slhaValExists("FRBlock67",2,1,2),slhaVal("FRBlock67",0,2,1,2),hSlR1x2Def),hSlR1x2Def)             %Real part of Charged scalar - lepton coupling cons
+%hSlR2x1       |if(slhaFound,if(slhaValExists("FRBlock67",2,2,1),slhaVal("FRBlock67",0,2,2,1),hSlR2x1Def),hSlR2x1Def)             %Real part of Charged scalar - lepton coupling cons
+%hSlR2x2       |if(slhaFound,if(slhaValExists("FRBlock67",2,2,2),slhaVal("FRBlock67",0,2,2,2),hSlR2x2Def),hSlR2x2Def)             %Real part of Charged scalar - lepton coupling cons
+%hSlI1x1       |if(slhaFound,if(slhaValExists("FRBlock68",2,1,1),slhaVal("FRBlock68",0,2,1,1),hSlI1x1Def),hSlI1x1Def)             %Imaginary part of Charged scalar - lepton coupling
+%hSlI1x2       |if(slhaFound,if(slhaValExists("FRBlock68",2,1,2),slhaVal("FRBlock68",0,2,1,2),hSlI1x2Def),hSlI1x2Def)             %Imaginary part of Charged scalar - lepton coupling
+%hSlI2x1       |if(slhaFound,if(slhaValExists("FRBlock68",2,2,1),slhaVal("FRBlock68",0,2,2,1),hSlI2x1Def),hSlI2x1Def)             %Imaginary part of Charged scalar - lepton coupling
+%hSlI2x2       |if(slhaFound,if(slhaValExists("FRBlock68",2,2,2),slhaVal("FRBlock68",0,2,2,2),hSlI2x2Def),hSlI2x2Def)             %Imaginary part of Charged scalar - lepton coupling
+%gSuR1x1       |if(slhaFound,if(slhaValExists("FRBlock7",2,1,1),slhaVal("FRBlock7",0,2,1,1),gSuR1x1Def),gSuR1x1Def)               %Real part of Neutral Scalar - up quark coupling co
+%gSuR1x2       |if(slhaFound,if(slhaValExists("FRBlock7",2,1,2),slhaVal("FRBlock7",0,2,1,2),gSuR1x2Def),gSuR1x2Def)               %Real part of Neutral Scalar - up quark coupling co
+%gSuR2x2       |if(slhaFound,if(slhaValExists("FRBlock7",2,2,2),slhaVal("FRBlock7",0,2,2,2),gSuR2x2Def),gSuR2x2Def)               %Real part of Neutral Scalar - up quark coupling co
+%hPlR1x1       |if(slhaFound,if(slhaValExists("FRBlock70",2,1,1),slhaVal("FRBlock70",0,2,1,1),hPlR1x1Def),hPlR1x1Def)             %Real part of Charged pseudoscalar - lepton couplin
+%hPlR1x2       |if(slhaFound,if(slhaValExists("FRBlock70",2,1,2),slhaVal("FRBlock70",0,2,1,2),hPlR1x2Def),hPlR1x2Def)             %Real part of Charged pseudoscalar - lepton couplin
+%hPlR2x1       |if(slhaFound,if(slhaValExists("FRBlock70",2,2,1),slhaVal("FRBlock70",0,2,2,1),hPlR2x1Def),hPlR2x1Def)             %Real part of Charged pseudoscalar - lepton couplin
+%hPlR2x2       |if(slhaFound,if(slhaValExists("FRBlock70",2,2,2),slhaVal("FRBlock70",0,2,2,2),hPlR2x2Def),hPlR2x2Def)             %Real part of Charged pseudoscalar - lepton couplin
+%hPlI1x1       |if(slhaFound,if(slhaValExists("FRBlock71",2,1,1),slhaVal("FRBlock71",0,2,1,1),hPlI1x1Def),hPlI1x1Def)             %Imaginary part of Charged pseudoscalar - lepton co
+%hPlI1x2       |if(slhaFound,if(slhaValExists("FRBlock71",2,1,2),slhaVal("FRBlock71",0,2,1,2),hPlI1x2Def),hPlI1x2Def)             %Imaginary part of Charged pseudoscalar - lepton co
+%hPlI2x1       |if(slhaFound,if(slhaValExists("FRBlock71",2,2,1),slhaVal("FRBlock71",0,2,2,1),hPlI2x1Def),hPlI2x1Def)             %Imaginary part of Charged pseudoscalar - lepton co
+%hPlI2x2       |if(slhaFound,if(slhaValExists("FRBlock71",2,2,2),slhaVal("FRBlock71",0,2,2,2),hPlI2x2Def),hPlI2x2Def)             %Imaginary part of Charged pseudoscalar - lepton co
+%hVqR1x1       |if(slhaFound,if(slhaValExists("FRBlock73",2,1,1),slhaVal("FRBlock73",0,2,1,1),hVqR1x1Def),hVqR1x1Def)             %Real part of Charged vector - quark coupling const
+%hVqR1x2       |if(slhaFound,if(slhaValExists("FRBlock73",2,1,2),slhaVal("FRBlock73",0,2,1,2),hVqR1x2Def),hVqR1x2Def)             %Real part of Charged vector - quark coupling const
+%hVqR2x1       |if(slhaFound,if(slhaValExists("FRBlock73",2,2,1),slhaVal("FRBlock73",0,2,2,1),hVqR2x1Def),hVqR2x1Def)             %Real part of Charged vector - quark coupling const
+%hVqR2x2       |if(slhaFound,if(slhaValExists("FRBlock73",2,2,2),slhaVal("FRBlock73",0,2,2,2),hVqR2x2Def),hVqR2x2Def)             %Real part of Charged vector - quark coupling const
+%hVqI1x1       |if(slhaFound,if(slhaValExists("FRBlock74",2,1,1),slhaVal("FRBlock74",0,2,1,1),hVqI1x1Def),hVqI1x1Def)             %Imaginary part of Charged vector - quark coupling 
+%hVqI1x2       |if(slhaFound,if(slhaValExists("FRBlock74",2,1,2),slhaVal("FRBlock74",0,2,1,2),hVqI1x2Def),hVqI1x2Def)             %Imaginary part of Charged vector - quark coupling 
+%hVqI2x1       |if(slhaFound,if(slhaValExists("FRBlock74",2,2,1),slhaVal("FRBlock74",0,2,2,1),hVqI2x1Def),hVqI2x1Def)             %Imaginary part of Charged vector - quark coupling 
+%hVqI2x2       |if(slhaFound,if(slhaValExists("FRBlock74",2,2,2),slhaVal("FRBlock74",0,2,2,2),hVqI2x2Def),hVqI2x2Def)             %Imaginary part of Charged vector - quark coupling 
+%hAqR1x1       |if(slhaFound,if(slhaValExists("FRBlock76",2,1,1),slhaVal("FRBlock76",0,2,1,1),hAqR1x1Def),hAqR1x1Def)             %Real part of Charged axial vector - quark coupling
+%hAqR1x2       |if(slhaFound,if(slhaValExists("FRBlock76",2,1,2),slhaVal("FRBlock76",0,2,1,2),hAqR1x2Def),hAqR1x2Def)             %Real part of Charged axial vector - quark coupling
+%hAqR2x1       |if(slhaFound,if(slhaValExists("FRBlock76",2,2,1),slhaVal("FRBlock76",0,2,2,1),hAqR2x1Def),hAqR2x1Def)             %Real part of Charged axial vector - quark coupling
+%hAqR2x2       |if(slhaFound,if(slhaValExists("FRBlock76",2,2,2),slhaVal("FRBlock76",0,2,2,2),hAqR2x2Def),hAqR2x2Def)             %Real part of Charged axial vector - quark coupling
+%hAqI1x1       |if(slhaFound,if(slhaValExists("FRBlock77",2,1,1),slhaVal("FRBlock77",0,2,1,1),hAqI1x1Def),hAqI1x1Def)             %Imaginary part of Charged axial vector - quark cou
+%hAqI1x2       |if(slhaFound,if(slhaValExists("FRBlock77",2,1,2),slhaVal("FRBlock77",0,2,1,2),hAqI1x2Def),hAqI1x2Def)             %Imaginary part of Charged axial vector - quark cou
+%hAqI2x1       |if(slhaFound,if(slhaValExists("FRBlock77",2,2,1),slhaVal("FRBlock77",0,2,2,1),hAqI2x1Def),hAqI2x1Def)             %Imaginary part of Charged axial vector - quark cou
+%hAqI2x2       |if(slhaFound,if(slhaValExists("FRBlock77",2,2,2),slhaVal("FRBlock77",0,2,2,2),hAqI2x2Def),hAqI2x2Def)             %Imaginary part of Charged axial vector - quark cou
+%hVlR1x1       |if(slhaFound,if(slhaValExists("FRBlock79",2,1,1),slhaVal("FRBlock79",0,2,1,1),hVlR1x1Def),hVlR1x1Def)             %Real part of Charged vector - lepton coupling cons
+%hVlR1x2       |if(slhaFound,if(slhaValExists("FRBlock79",2,1,2),slhaVal("FRBlock79",0,2,1,2),hVlR1x2Def),hVlR1x2Def)             %Real part of Charged vector - lepton coupling cons
+%hVlR2x1       |if(slhaFound,if(slhaValExists("FRBlock79",2,2,1),slhaVal("FRBlock79",0,2,2,1),hVlR2x1Def),hVlR2x1Def)             %Real part of Charged vector - lepton coupling cons
+%hVlR2x2       |if(slhaFound,if(slhaValExists("FRBlock79",2,2,2),slhaVal("FRBlock79",0,2,2,2),hVlR2x2Def),hVlR2x2Def)             %Real part of Charged vector - lepton coupling cons
+%gSuI1x2       |if(slhaFound,if(slhaValExists("FRBlock8",2,1,2),slhaVal("FRBlock8",0,2,1,2),gSuI1x2Def),gSuI1x2Def)               %Imaginary part of Neutral Scalar - up quark coupli
+%hVlI1x1       |if(slhaFound,if(slhaValExists("FRBlock80",2,1,1),slhaVal("FRBlock80",0,2,1,1),hVlI1x1Def),hVlI1x1Def)             %Imaginary part of Charged vector - lepton coupling
+%hVlI1x2       |if(slhaFound,if(slhaValExists("FRBlock80",2,1,2),slhaVal("FRBlock80",0,2,1,2),hVlI1x2Def),hVlI1x2Def)             %Imaginary part of Charged vector - lepton coupling
+%hVlI2x1       |if(slhaFound,if(slhaValExists("FRBlock80",2,2,1),slhaVal("FRBlock80",0,2,2,1),hVlI2x1Def),hVlI2x1Def)             %Imaginary part of Charged vector - lepton coupling
+%hVlI2x2       |if(slhaFound,if(slhaValExists("FRBlock80",2,2,2),slhaVal("FRBlock80",0,2,2,2),hVlI2x2Def),hVlI2x2Def)             %Imaginary part of Charged vector - lepton coupling
+%hAlR1x1       |if(slhaFound,if(slhaValExists("FRBlock82",2,1,1),slhaVal("FRBlock82",0,2,1,1),hAlR1x1Def),hAlR1x1Def)             %Real part of Charged axial vector - lepton couplin
+%hAlR1x2       |if(slhaFound,if(slhaValExists("FRBlock82",2,1,2),slhaVal("FRBlock82",0,2,1,2),hAlR1x2Def),hAlR1x2Def)             %Real part of Charged axial vector - lepton couplin
+%hAlR2x1       |if(slhaFound,if(slhaValExists("FRBlock82",2,2,1),slhaVal("FRBlock82",0,2,2,1),hAlR2x1Def),hAlR2x1Def)             %Real part of Charged axial vector - lepton couplin
+%hAlR2x2       |if(slhaFound,if(slhaValExists("FRBlock82",2,2,2),slhaVal("FRBlock82",0,2,2,2),hAlR2x2Def),hAlR2x2Def)             %Real part of Charged axial vector - lepton couplin
+%hAlI1x1       |if(slhaFound,if(slhaValExists("FRBlock83",2,1,1),slhaVal("FRBlock83",0,2,1,1),hAlI1x1Def),hAlI1x1Def)             %Imaginary part of Charged axial vector - lepton co
+%hAlI1x2       |if(slhaFound,if(slhaValExists("FRBlock83",2,1,2),slhaVal("FRBlock83",0,2,1,2),hAlI1x2Def),hAlI1x2Def)             %Imaginary part of Charged axial vector - lepton co
+%hAlI2x1       |if(slhaFound,if(slhaValExists("FRBlock83",2,2,1),slhaVal("FRBlock83",0,2,2,1),hAlI2x1Def),hAlI2x1Def)             %Imaginary part of Charged axial vector - lepton co
+%hAlI2x2       |if(slhaFound,if(slhaValExists("FRBlock83",2,2,2),slhaVal("FRBlock83",0,2,2,2),hAlI2x2Def),hAlI2x2Def)             %Imaginary part of Charged axial vector - lepton co
+%hTqR1x1       |if(slhaFound,if(slhaValExists("FRBlock85",2,1,1),slhaVal("FRBlock85",0,2,1,1),hTqR1x1Def),hTqR1x1Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hTqR1x2       |if(slhaFound,if(slhaValExists("FRBlock85",2,1,2),slhaVal("FRBlock85",0,2,1,2),hTqR1x2Def),hTqR1x2Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hTqR2x1       |if(slhaFound,if(slhaValExists("FRBlock85",2,2,1),slhaVal("FRBlock85",0,2,2,1),hTqR2x1Def),hTqR2x1Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hTqR2x2       |if(slhaFound,if(slhaValExists("FRBlock85",2,2,2),slhaVal("FRBlock85",0,2,2,2),hTqR2x2Def),hTqR2x2Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hTqI1x1       |if(slhaFound,if(slhaValExists("FRBlock86",2,1,1),slhaVal("FRBlock86",0,2,1,1),hTqI1x1Def),hTqI1x1Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hTqI1x2       |if(slhaFound,if(slhaValExists("FRBlock86",2,1,2),slhaVal("FRBlock86",0,2,1,2),hTqI1x2Def),hTqI1x2Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hTqI2x1       |if(slhaFound,if(slhaValExists("FRBlock86",2,2,1),slhaVal("FRBlock86",0,2,2,1),hTqI2x1Def),hTqI2x1Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hTqI2x2       |if(slhaFound,if(slhaValExists("FRBlock86",2,2,2),slhaVal("FRBlock86",0,2,2,2),hTqI2x2Def),hTqI2x2Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hUqR1x1       |if(slhaFound,if(slhaValExists("FRBlock88",2,1,1),slhaVal("FRBlock88",0,2,1,1),hUqR1x1Def),hUqR1x1Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hUqR1x2       |if(slhaFound,if(slhaValExists("FRBlock88",2,1,2),slhaVal("FRBlock88",0,2,1,2),hUqR1x2Def),hUqR1x2Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hUqR2x1       |if(slhaFound,if(slhaValExists("FRBlock88",2,2,1),slhaVal("FRBlock88",0,2,2,1),hUqR2x1Def),hUqR2x1Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hUqR2x2       |if(slhaFound,if(slhaValExists("FRBlock88",2,2,2),slhaVal("FRBlock88",0,2,2,2),hUqR2x2Def),hUqR2x2Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hUqI1x1       |if(slhaFound,if(slhaValExists("FRBlock89",2,1,1),slhaVal("FRBlock89",0,2,1,1),hUqI1x1Def),hUqI1x1Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hUqI1x2       |if(slhaFound,if(slhaValExists("FRBlock89",2,1,2),slhaVal("FRBlock89",0,2,1,2),hUqI1x2Def),hUqI1x2Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hUqI2x1       |if(slhaFound,if(slhaValExists("FRBlock89",2,2,1),slhaVal("FRBlock89",0,2,2,1),hUqI2x1Def),hUqI2x1Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hUqI2x2       |if(slhaFound,if(slhaValExists("FRBlock89",2,2,2),slhaVal("FRBlock89",0,2,2,2),hUqI2x2Def),hUqI2x2Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hYqR1x1       |if(slhaFound,if(slhaValExists("FRBlock91",2,1,1),slhaVal("FRBlock91",0,2,1,1),hYqR1x1Def),hYqR1x1Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hYqR1x2       |if(slhaFound,if(slhaValExists("FRBlock91",2,1,2),slhaVal("FRBlock91",0,2,1,2),hYqR1x2Def),hYqR1x2Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hYqR2x1       |if(slhaFound,if(slhaValExists("FRBlock91",2,2,1),slhaVal("FRBlock91",0,2,2,1),hYqR2x1Def),hYqR2x1Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hYqR2x2       |if(slhaFound,if(slhaValExists("FRBlock91",2,2,2),slhaVal("FRBlock91",0,2,2,2),hYqR2x2Def),hYqR2x2Def)             %Real part of Charged Symmetric Tensor - quark coup
+%hYqI1x1       |if(slhaFound,if(slhaValExists("FRBlock92",2,1,1),slhaVal("FRBlock92",0,2,1,1),hYqI1x1Def),hYqI1x1Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hYqI1x2       |if(slhaFound,if(slhaValExists("FRBlock92",2,1,2),slhaVal("FRBlock92",0,2,1,2),hYqI1x2Def),hYqI1x2Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hYqI2x1       |if(slhaFound,if(slhaValExists("FRBlock92",2,2,1),slhaVal("FRBlock92",0,2,2,1),hYqI2x1Def),hYqI2x1Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hYqI2x2       |if(slhaFound,if(slhaValExists("FRBlock92",2,2,2),slhaVal("FRBlock92",0,2,2,2),hYqI2x2Def),hYqI2x2Def)             %Imaginary part of Charged Symmetric Tensor - quark
+%hZqR1x1       |if(slhaFound,if(slhaValExists("FRBlock94",2,1,1),slhaVal("FRBlock94",0,2,1,1),hZqR1x1Def),hZqR1x1Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hZqR1x2       |if(slhaFound,if(slhaValExists("FRBlock94",2,1,2),slhaVal("FRBlock94",0,2,1,2),hZqR1x2Def),hZqR1x2Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hZqR2x1       |if(slhaFound,if(slhaValExists("FRBlock94",2,2,1),slhaVal("FRBlock94",0,2,2,1),hZqR2x1Def),hZqR2x1Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hZqR2x2       |if(slhaFound,if(slhaValExists("FRBlock94",2,2,2),slhaVal("FRBlock94",0,2,2,2),hZqR2x2Def),hZqR2x2Def)             %Real part of Charged axial Symmetric Tensor - quar
+%hZqI1x1       |if(slhaFound,if(slhaValExists("FRBlock95",2,1,1),slhaVal("FRBlock95",0,2,1,1),hZqI1x1Def),hZqI1x1Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hZqI1x2       |if(slhaFound,if(slhaValExists("FRBlock95",2,1,2),slhaVal("FRBlock95",0,2,1,2),hZqI1x2Def),hZqI1x2Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hZqI2x1       |if(slhaFound,if(slhaValExists("FRBlock95",2,2,1),slhaVal("FRBlock95",0,2,2,1),hZqI2x1Def),hZqI2x1Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hZqI2x2       |if(slhaFound,if(slhaValExists("FRBlock95",2,2,2),slhaVal("FRBlock95",0,2,2,2),hZqI2x2Def),hZqI2x2Def)             %Imaginary part of Charged axial Symmetric Tensor -
+%hTlR1x1       |if(slhaFound,if(slhaValExists("FRBlock97",2,1,1),slhaVal("FRBlock97",0,2,1,1),hTlR1x1Def),hTlR1x1Def)             %Real part of Charged Symmetric Tensor - lepton cou
+%hTlR1x2       |if(slhaFound,if(slhaValExists("FRBlock97",2,1,2),slhaVal("FRBlock97",0,2,1,2),hTlR1x2Def),hTlR1x2Def)             %Real part of Charged Symmetric Tensor - lepton cou
+%hTlR2x1       |if(slhaFound,if(slhaValExists("FRBlock97",2,2,1),slhaVal("FRBlock97",0,2,2,1),hTlR2x1Def),hTlR2x1Def)             %Real part of Charged Symmetric Tensor - lepton cou
+%hTlR2x2       |if(slhaFound,if(slhaValExists("FRBlock97",2,2,2),slhaVal("FRBlock97",0,2,2,2),hTlR2x2Def),hTlR2x2Def)             %Real part of Charged Symmetric Tensor - lepton cou
+%hTlI1x1       |if(slhaFound,if(slhaValExists("FRBlock98",2,1,1),slhaVal("FRBlock98",0,2,1,1),hTlI1x1Def),hTlI1x1Def)             %Imaginary part of Charged Symmetric Tensor - lepto
+%hTlI1x2       |if(slhaFound,if(slhaValExists("FRBlock98",2,1,2),slhaVal("FRBlock98",0,2,1,2),hTlI1x2Def),hTlI1x2Def)             %Imaginary part of Charged Symmetric Tensor - lepto
+%hTlI2x1       |if(slhaFound,if(slhaValExists("FRBlock98",2,2,1),slhaVal("FRBlock98",0,2,2,1),hTlI2x1Def),hTlI2x1Def)             %Imaginary part of Charged Symmetric Tensor - lepto
+%hTlI2x2       |if(slhaFound,if(slhaValExists("FRBlock98",2,2,2),slhaVal("FRBlock98",0,2,2,2),hTlI2x2Def),hTlI2x2Def)             %Imaginary part of Charged Symmetric Tensor - lepto
+%MTA           |if(slhaFound,if(slhaValExists("MASS",1,15),slhaVal("MASS",0,1,15),MTADef),MTADef)                                 %Mass of tt.                                       
+%MT            |if(slhaFound,if(slhaValExists("MASS",1,6),slhaVal("MASS",0,1,6),MTDef),MTDef)                                     %Mass of t.                                        
+%MB            |if(slhaFound,if(slhaValExists("MASS",1,5),slhaVal("MASS",0,1,5),MBDef),MBDef)                                     %Mass of b.                                        
+%MZ            |if(slhaFound,if(slhaValExists("MASS",1,23),slhaVal("MASS",0,1,23),MZDef),MZDef)                                   %Mass of phi.                                      
+%MH            |if(slhaFound,if(slhaValExists("MASS",1,25),slhaVal("MASS",0,1,25),MHDef),MHDef)                                   %Mass of H.                                        
+%MSV           |if(slhaFound,if(slhaValExists("MASS",1,9000006),slhaVal("MASS",0,1,9000006),MSVDef),MSVDef)                       %Mass of SV.                                       
+%MSVP          |if(slhaFound,if(slhaValExists("MASS",1,9000007),slhaVal("MASS",0,1,9000007),MSVPDef),MSVPDef)                     %Mass of SVP.                                      
+%MVV           |if(slhaFound,if(slhaValExists("MASS",1,9000008),slhaVal("MASS",0,1,9000008),MVVDef),MVVDef)                       %Mass of VV.                                       
+%MVVP          |if(slhaFound,if(slhaValExists("MASS",1,9000009),slhaVal("MASS",0,1,9000009),MVVPDef),MVVPDef)                     %Mass of VVP.                                      
+%MTV           |if(slhaFound,if(slhaValExists("MASS",1,9000010),slhaVal("MASS",0,1,9000010),MTVDef),MTVDef)                       %Mass of TV.                                       
+%MTVP          |if(slhaFound,if(slhaValExists("MASS",1,9000011),slhaVal("MASS",0,1,9000011),MTVPDef),MTVPDef)                     %Mass of TVP.                                      
+%WT            |if(slhaFound,if(1+slhaDecayExists(6),slhaWidth(6),WTDef),WTDef)                                                   %Width of t.                                       
+%WZ            |if(slhaFound,if(1+slhaDecayExists(23),slhaWidth(23),WZDef),WZDef)                                                 %Width of Z.                                       
+%WW            |if(slhaFound,if(1+slhaDecayExists(24),slhaWidth(24),WWDef),WWDef)                                                 %Width of W.                                       
+%WH            |if(slhaFound,if(1+slhaDecayExists(25),slhaWidth(25),WHDef),WHDef)                                                 %Width of H.                                       
+%WSV           |if(slhaFound,if(1+slhaDecayExists(9000006),slhaWidth(9000006),WSVDef),WSVDef)                                     %Width of SV.                                      
+%WSVP          |if(slhaFound,if(1+slhaDecayExists(9000007),slhaWidth(9000007),WSVPDef),WSVPDef)                                   %Width of SVP.                                     
+%WVV           |if(slhaFound,if(1+slhaDecayExists(9000008),slhaWidth(9000008),WVVDef),WVVDef)                                     %Width of VV.                                      
+%WVVP          |if(slhaFound,if(1+slhaDecayExists(9000009),slhaWidth(9000009),WVVPDef),WVVPDef)                                   %Width of VVP.                                     
+%WTV           |if(slhaFound,if(1+slhaDecayExists(9000010),slhaWidth(9000010),WTVDef),WTVDef)                                     %Width of TV.                                      
+%WTVP          |if(slhaFound,if(1+slhaDecayExists(9000011),slhaWidth(9000011),WTVPDef),WTVPDef)                                   %Width of TVP.                                     
+CKM1x1         |cos(cabi)                                                                                                         % CKM-Matrix ( CKM1x1 )                             
+CKM1x2         |sin(cabi)                                                                                                         % CKM-Matrix ( CKM1x2 )                             
+CKM1x3         |0                                                                                                                 % CKM-Matrix ( CKM1x3 )                             
+CKM2x1         |-sin(cabi)                                                                                                        % CKM-Matrix ( CKM2x1 )                             
+CKM2x2         |cos(cabi)                                                                                                         % CKM-Matrix ( CKM2x2 )                             
+CKM2x3         |0                                                                                                                 % CKM-Matrix ( CKM2x3 )                             
+CKM3x1         |0                                                                                                                 % CKM-Matrix ( CKM3x1 )                             
+CKM3x2         |0                                                                                                                 % CKM-Matrix ( CKM3x2 )                             
+CKM3x3         |1                                                                                                                 % CKM-Matrix ( CKM3x3 )                             
+aEW            |pow(aEWM1,-1)                                                                                                     % Electroweak coupling contant                      
+MW             |pow(pow(MZ,2)/2.+pow(-(aEW*Pi*pow(2,-0.5)*pow(Gf,-1)*pow(MZ,2))+pow(MZ,4)/4.,0.5),0.5)                            % W mass                                            
+EE             |2*pow(aEW,0.5)*pow(Pi,0.5)                                                                                        % Electric coupling constant                        
+sw2            |1-pow(MW,2)*pow(MZ,-2)                                                                                            % Squared Sin of the Weinberg angle                 
+cw             |pow(1-sw2,0.5)                                                                                                    % Cos of the Weinberg angle                         
+sw             |pow(sw2,0.5)                                                                                                      % Sin of the Weinberg angle                         
+g1             |EE*pow(cw,-1)                                                                                                     % U(1)Y coupling constant                           
+gw             |EE*pow(sw,-1)                                                                                                     % Weak coupling constant                            
+v              |2*MW*sw*pow(EE,-1)                                                                                                % Higgs VEV                                         
+lam            |(pow(MH,2)*pow(v,-2))/2.                                                                                          % Higgs quartic coupling                            
+yb             |ymb*pow(2,0.5)*pow(v,-1)                                                                                          % D-quark Yukawa coupling ( yb )                    
+yt             |ymt*pow(2,0.5)*pow(v,-1)                                                                                          % U-quark Yukawa coupling ( yt )                    
+ytau           |ymtau*pow(2,0.5)*pow(v,-1)                                                                                        % Lepton Yukawa coupling ( ytau )                   
+muH            |pow(lam*pow(v,2),0.5)                                                                                             % Coefficient of the quadratic piece of the Higgs po
+x1x0           |-6*lam                                                                                                            % H    H    H    H     coupling.
+x2x0           |-2*lam                                                                                                            % H    H    Z.f  Z.f   coupling.
+x3x0           |-6*lam                                                                                                            % Z.f  Z.f  Z.f  Z.f   coupling.
+x4x0           |-2*lam                                                                                                            % H    H    W+.f W-.f  coupling.
+x5x0           |-2*lam                                                                                                            % Z.f  Z.f  W+.f W-.f  coupling.
+x6x0           |-4*lam                                                                                                            % W+.f W+.f W-.f W-.f  coupling.
+x7x0           |-6*lam*v                                                                                                          % H    H    H     coupling.
+x8x0           |-2*lam*v                                                                                                          % H    Z.f  Z.f   coupling.
+x9x0           |-2*lam*v                                                                                                          % H    W+.f W-.f  coupling.
+x10x0          |2                                                                                                                 % A    A    W+.f W-.f  coupling.
+x11x0          |-1                                                                                                                % A    W+.f W-.f  coupling.
+x12x0          |-gVg                                                                                                              % G    G    VV    coupling.
+x13x0          |1                                                                                                                 % A.C  W-.c W+    coupling.
+x14x0          |-1                                                                                                                % A.C  W+.c W-    coupling.
+x15x0          |-MW                                                                                                               % W+.C A.c  W-.f  coupling.
+x16x0          |1                                                                                                                 % W+.C A.c  W-    coupling.
+x17x0          |-(MW*pow(sw,-1))/2.                                                                                               % W+.C W-.c H     coupling.
+x18x0          |(MW*pow(sw,-1))/2.                                                                                                % W+.C W-.c Z.f   coupling.
+x19x0          |-1                                                                                                                % W+.C W-.c A     coupling.
+x20x0          |-(cw*pow(sw,-1))                                                                                                  % W+.C W-.c Z     coupling.
+x21x0          |(MW*sw*pow(cw,-1))/2.-(cw*MW*pow(sw,-1))/2.                                                                       % W+.C Z.c  W-.f  coupling.
+x22x0          |cw*pow(sw,-1)                                                                                                     % W+.C Z.c  W-    coupling.
+x23x0          |MW                                                                                                                % W-.C A.c  W+.f  coupling.
+x24x0          |-1                                                                                                                % W-.C A.c  W+    coupling.
+x25x0          |-(MW*pow(sw,-1))/2.                                                                                               % W-.C W+.c H     coupling.
+x26x0          |-(MW*pow(sw,-1))/2.                                                                                               % W-.C W+.c Z.f   coupling.
+x27x0          |1                                                                                                                 % W-.C W+.c A     coupling.
+x28x0          |cw*pow(sw,-1)                                                                                                     % W-.C W+.c Z     coupling.
+x29x0          |-(MW*sw*pow(cw,-1))/2.+(cw*MW*pow(sw,-1))/2.                                                                      % W-.C Z.c  W+.f  coupling.
+x30x0          |-(cw*pow(sw,-1))                                                                                                  % W-.C Z.c  W+    coupling.
+x31x0          |-(MZ*pow(sw,-1))/2.                                                                                               % Z.C  W-.c W+.f  coupling.
+x32x0          |cw*pow(sw,-1)                                                                                                     % Z.C  W-.c W+    coupling.
+x33x0          |(MZ*pow(sw,-1))/2.                                                                                                % Z.C  W+.c W-.f  coupling.
+x34x0          |-(cw*pow(sw,-1))                                                                                                  % Z.C  W+.c W-    coupling.
+x35x0          |-(MZ*pow(cw,-1)*pow(sw,-1))/2.                                                                                    % Z.C  Z.c  H     coupling.
+x36x0          |1                                                                                                                 % G.C  G.c  G     coupling.
+x37x0          |1                                                                                                                 % G    G    G     coupling.
+x38x           |-pow(2,-0.5)                                                                                                      % G    G    G        coupling.
+x39x0          |gVg                                                                                                               % G    G    G    VV    coupling.
+x40x0          |1                                                                                                                 % G    d~   d     coupling.
+x41x0          |1                                                                                                                 % G    s~   s     coupling.
+x42x0          |1                                                                                                                 % G    b~   b     coupling.
+x43x0          |1                                                                                                                 % G    u~   u     coupling.
+x44x0          |1                                                                                                                 % G    c~   c     coupling.
+x45x0          |1                                                                                                                 % G    t~   t     coupling.
+x46x0          |1                                                                                                                 % VV   d~   d     coupling.
+x46x1          |gVdR1x1                                                                                                           % VV   d~   d        coupling.
+x46x2          |gAdR1x1                                                                                                           % VV   d~   d        coupling.
+x47x0          |1                                                                                                                 % VV   d~   s     coupling.
+x47x1          |gVdR1x2                                                                                                           % VV   d~   s        coupling.
+x47x2          |gVdI1x2                                                                                                           % VV   d~   s        coupling.
+x47x3          |gAdR1x2                                                                                                           % VV   d~   s        coupling.
+x47x4          |gAdI1x2                                                                                                           % VV   d~   s        coupling.
+x48x0          |-1                                                                                                                % VV   s~   d     coupling.
+x48x1          |-gVdR1x2                                                                                                          % VV   s~   d        coupling.
+x48x2          |gVdI1x2                                                                                                           % VV   s~   d        coupling.
+x48x3          |-gAdR1x2                                                                                                          % VV   s~   d        coupling.
+x48x4          |gAdI1x2                                                                                                           % VV   s~   d        coupling.
+x49x0          |1                                                                                                                 % VV   s~   s     coupling.
+x49x1          |gVdR2x2                                                                                                           % VV   s~   s        coupling.
+x49x2          |gAdR2x2                                                                                                           % VV   s~   s        coupling.
+x50x0          |1                                                                                                                 % VV   e+   e-    coupling.
+x50x1          |gVlR1x1                                                                                                           % VV   e+   e-       coupling.
+x50x2          |gAlR1x1                                                                                                           % VV   e+   e-       coupling.
+x51x0          |1                                                                                                                 % VV   e+   m-    coupling.
+x51x1          |gVlR1x2                                                                                                           % VV   e+   m-       coupling.
+x51x2          |gVlI1x2                                                                                                           % VV   e+   m-       coupling.
+x51x3          |gAlR1x2                                                                                                           % VV   e+   m-       coupling.
+x51x4          |gAlI1x2                                                                                                           % VV   e+   m-       coupling.
+x52x0          |-1                                                                                                                % VV   m+   e-    coupling.
+x52x1          |-gVlR1x2                                                                                                          % VV   m+   e-       coupling.
+x52x2          |gVlI1x2                                                                                                           % VV   m+   e-       coupling.
+x52x3          |-gAlR1x2                                                                                                          % VV   m+   e-       coupling.
+x52x4          |gAlI1x2                                                                                                           % VV   m+   e-       coupling.
+x53x0          |1                                                                                                                 % VV   m+   m-    coupling.
+x53x1          |gVlR2x2                                                                                                           % VV   m+   m-       coupling.
+x53x2          |gAlR2x2                                                                                                           % VV   m+   m-       coupling.
+x54x0          |1                                                                                                                 % VV   u~   u     coupling.
+x54x1          |gVuR1x1                                                                                                           % VV   u~   u        coupling.
+x54x2          |gAuR1x1                                                                                                           % VV   u~   u        coupling.
+x55x0          |1                                                                                                                 % VV   u~   c     coupling.
+x55x1          |gVuR1x2                                                                                                           % VV   u~   c        coupling.
+x55x2          |gVuI1x2                                                                                                           % VV   u~   c        coupling.
+x55x3          |gAuR1x2                                                                                                           % VV   u~   c        coupling.
+x55x4          |gAuI1x2                                                                                                           % VV   u~   c        coupling.
+x56x0          |-1                                                                                                                % VV   c~   u     coupling.
+x56x1          |-gVuR1x2                                                                                                          % VV   c~   u        coupling.
+x56x2          |gVuI1x2                                                                                                           % VV   c~   u        coupling.
+x56x3          |-gAuR1x2                                                                                                          % VV   c~   u        coupling.
+x56x4          |gAuI1x2                                                                                                           % VV   c~   u        coupling.
+x57x0          |1                                                                                                                 % VV   c~   c     coupling.
+x57x1          |gVuR2x2                                                                                                           % VV   c~   c        coupling.
+x57x2          |gAuR2x2                                                                                                           % VV   c~   c        coupling.
+x58x0          |pow(sw,-1)/2.                                                                                                     % A    H    W-.f W+    coupling.
+x59x0          |-pow(sw,-1)/2.                                                                                                    % A    Z.f  W-.f W+    coupling.
+x60x0          |(v*pow(sw,-1))/2.                                                                                                 % A    W-.f W+    coupling.
+x61x0          |-pow(sw,-1)/2.                                                                                                    % H    W-.f W+    coupling.
+x62x0          |pow(sw,-1)/2.                                                                                                     % Z.f  W-.f W+    coupling.
+x63x0          |gw*sw                                                                                                             % A    W+   W-    coupling.
+x64x0          |-pow(sw,-1)/2.                                                                                                    % A    H    W+.f W-    coupling.
+x65x0          |-pow(sw,-1)/2.                                                                                                    % A    Z.f  W+.f W-    coupling.
+x66x0          |-(v*pow(sw,-1))/2.                                                                                                % A    W+.f W-    coupling.
+x67x0          |-pow(sw,-1)/2.                                                                                                    % H    W+.f W-    coupling.
+x68x0          |-pow(sw,-1)/2.                                                                                                    % Z.f  W+.f W-    coupling.
+x69x0          |pow(sw,-2)/2.                                                                                                     % H    H    W+   W-    coupling.
+x70x0          |pow(sw,-2)/2.                                                                                                     % Z.f  Z.f  W+   W-    coupling.
+x71x0          |pow(sw,-2)/2.                                                                                                     % W+.f W-.f W+   W-    coupling.
+x72x0          |(v*pow(sw,-2))/2.                                                                                                 % H    W+   W-    coupling.
+x73x0          |-(pow(gw,2)*pow(sw,2))                                                                                            % A    A    W+   W-    coupling.
+x74x0          |cw*gw                                                                                                             % W+   W-   Z     coupling.
+x75x0          |pow(gw,2)                                                                                                         % W+   W+   W-   W-    coupling.
+x76x0          |(CKM1x3*yb)/2.                                                                                                    % W+.f u~   b     coupling.
+x77x0          |(CKM2x3*yb)/2.                                                                                                    % W+.f c~   b     coupling.
+x78x0          |(CKM3x1*yt)/2.                                                                                                    % W+.f t~   d     coupling.
+x79x0          |(CKM3x2*yt)/2.                                                                                                    % W+.f t~   s     coupling.
+x80x0          |CKM3x3/2.                                                                                                         % W+.f t~   b     coupling.
+x80x1          |yb-yt                                                                                                             % W+.f t~   b        coupling.
+x80x2          |yb+yt                                                                                                             % W+.f t~   b        coupling.
+x81x0          |(CKM3x1*yt)/2.                                                                                                    % W-.f d~   t     coupling.
+x82x0          |(CKM3x2*yt)/2.                                                                                                    % W-.f s~   t     coupling.
+x83x0          |(CKM1x3*yb)/2.                                                                                                    % W-.f b~   u     coupling.
+x84x0          |(CKM2x3*yb)/2.                                                                                                    % W-.f b~   c     coupling.
+x85x0          |CKM3x3/2.                                                                                                         % W-.f b~   t     coupling.
+x85x1          |-yb+yt                                                                                                            % W-.f b~   t        coupling.
+x85x2          |yb+yt                                                                                                             % W-.f b~   t        coupling.
+x86x0          |-(yb*pow(2,-0.5))                                                                                                 % H    b~   b     coupling.
+x87x0          |-(yb*pow(2,-0.5))                                                                                                 % Z.f  b~   b     coupling.
+x88x0          |-(ytau*pow(2,-0.5))                                                                                               % H    tt+  tt-   coupling.
+x89x0          |-(ytau*pow(2,-0.5))                                                                                               % Z.f  tt+  tt-   coupling.
+x90x0          |ytau/2.                                                                                                           % W+.f vt~  tt-   coupling.
+x91x0          |ytau/2.                                                                                                           % W-.f tt+  vt    coupling.
+x92x0          |-(yt*pow(2,-0.5))                                                                                                 % H    t~   t     coupling.
+x93x0          |yt*pow(2,-0.5)                                                                                                    % Z.f  t~   t     coupling.
+x94x0          |-(sw*pow(cw,-1))+cw*pow(sw,-1)                                                                                    % A    W+.f W-.f Z     coupling.
+x95x0          |-(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/2.                                                                 % H    Z.f  Z     coupling.
+x96x0          |(sw*pow(cw,-1))/2.-(cw*pow(sw,-1))/2.                                                                             % W+.f W-.f Z     coupling.
+x97x0          |-pow(cw,-1)/2.                                                                                                    % H    W-.f W+   Z     coupling.
+x98x0          |pow(cw,-1)/2.                                                                                                     % Z.f  W-.f W+   Z     coupling.
+x99x0          |-(v*pow(cw,-1))/2.                                                                                                % W-.f W+   Z     coupling.
+x100x0         |pow(cw,-1)/2.                                                                                                     % H    W+.f W-   Z     coupling.
+x101x0         |pow(cw,-1)/2.                                                                                                     % Z.f  W+.f W-   Z     coupling.
+x102x0         |(v*pow(cw,-1))/2.                                                                                                 % W+.f W-   Z     coupling.
+x103x0         |cw*sw*pow(gw,2)                                                                                                   % A    W+   W-   Z     coupling.
+x104x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                             % H    H    Z    Z     coupling.
+x105x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                             % Z.f  Z.f  Z    Z     coupling.
+x106x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)-pow(sw,2),2))/2.                                                             % W+.f W-.f Z    Z     coupling.
+x107x0         |(v*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                           % H    Z    Z     coupling.
+x108x0         |-(pow(cw,2)*pow(gw,2))                                                                                            % W+   W-   Z    Z     coupling.
+x109x0         |-0.3333333333333333                                                                                               % A    d~   d     coupling.
+x110x0         |-0.3333333333333333                                                                                               % A    s~   s     coupling.
+x111x0         |-0.3333333333333333                                                                                               % A    b~   b     coupling.
+x112x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                       % Z    d~   d     coupling.
+x112x1         |-3*pow(cw,2)+pow(sw,2)                                                                                            % Z    d~   d        coupling.
+x112x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    d~   d        coupling.
+x113x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                       % Z    s~   s     coupling.
+x113x1         |-3*pow(cw,2)+pow(sw,2)                                                                                            % Z    s~   s        coupling.
+x113x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    s~   s        coupling.
+x114x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                       % Z    b~   b     coupling.
+x114x1         |-3*pow(cw,2)+pow(sw,2)                                                                                            % Z    b~   b        coupling.
+x114x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    b~   b        coupling.
+x115x0         |-1                                                                                                                % A    e+   e-    coupling.
+x116x0         |-1                                                                                                                % A    m+   m-    coupling.
+x117x0         |-1                                                                                                                % A    tt+  tt-   coupling.
+x118x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                        % Z    e+   e-    coupling.
+x118x1         |-pow(cw,2)+3*pow(sw,2)                                                                                            % Z    e+   e-       coupling.
+x118x2         |pow(cw,2)+pow(sw,2)                                                                                               % Z    e+   e-       coupling.
+x119x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                        % Z    m+   m-    coupling.
+x119x1         |-pow(cw,2)+3*pow(sw,2)                                                                                            % Z    m+   m-       coupling.
+x119x2         |pow(cw,2)+pow(sw,2)                                                                                               % Z    m+   m-       coupling.
+x120x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                        % Z    tt+  tt-   coupling.
+x120x1         |-pow(cw,2)+3*pow(sw,2)                                                                                            % Z    tt+  tt-      coupling.
+x120x2         |pow(cw,2)+pow(sw,2)                                                                                               % Z    tt+  tt-      coupling.
+x121x0         |0.6666666666666666                                                                                                % A    u~   u     coupling.
+x122x0         |0.6666666666666666                                                                                                % A    c~   c     coupling.
+x123x0         |0.6666666666666666                                                                                                % A    t~   t     coupling.
+x124x0         |-(pow(cw,-1)*pow(sw,-1))/12.                                                                                      % Z    u~   u     coupling.
+x124x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                          % Z    u~   u        coupling.
+x124x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    u~   u        coupling.
+x125x0         |-(pow(cw,-1)*pow(sw,-1))/12.                                                                                      % Z    c~   c     coupling.
+x125x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                          % Z    c~   c        coupling.
+x125x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    c~   c        coupling.
+x126x0         |-(pow(cw,-1)*pow(sw,-1))/12.                                                                                      % Z    t~   t     coupling.
+x126x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                          % Z    t~   t        coupling.
+x126x2         |3*(pow(cw,2)+pow(sw,2))                                                                                           % Z    t~   t        coupling.
+x127x0         |-(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/4.                                                                 % Z    ve~  ve    coupling.
+x128x0         |-(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/4.                                                                 % Z    vm~  vm    coupling.
+x129x0         |-(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/4.                                                                 % Z    vt~  vt    coupling.
+x130x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W+   ve~  e-    coupling.
+x131x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W+   vm~  m-    coupling.
+x132x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W+   vt~  tt-   coupling.
+x133x0         |-(CKM1x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   u~   d     coupling.
+x134x0         |-(CKM1x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   u~   s     coupling.
+x135x0         |-(CKM1x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   u~   b     coupling.
+x136x0         |-(CKM2x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   c~   d     coupling.
+x137x0         |-(CKM2x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   c~   s     coupling.
+x138x0         |-(CKM2x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   c~   b     coupling.
+x139x0         |-(CKM3x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   t~   d     coupling.
+x140x0         |-(CKM3x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   t~   s     coupling.
+x141x0         |-(CKM3x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W+   t~   b     coupling.
+x142x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W-   e+   ve    coupling.
+x143x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W-   m+   vm    coupling.
+x144x0         |-(pow(2,-0.5)*pow(sw,-1))/2.                                                                                      % W-   tt+  vt    coupling.
+x145x0         |-(CKM1x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   d~   u     coupling.
+x146x0         |-(CKM2x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   d~   c     coupling.
+x147x0         |-(CKM3x1*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   d~   t     coupling.
+x148x0         |-(CKM1x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   s~   u     coupling.
+x149x0         |-(CKM2x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   s~   c     coupling.
+x150x0         |-(CKM3x2*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   s~   t     coupling.
+x151x0         |-(CKM1x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   b~   u     coupling.
+x152x0         |-(CKM2x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   b~   c     coupling.
+x153x0         |-(CKM3x3*pow(2,-0.5)*pow(sw,-1))/2.                                                                               % W-   b~   t     coupling.

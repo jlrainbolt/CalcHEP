@@ -1,0 +1,133 @@
+
+#Subprocess 290 ( Z -> G, A, d, D )
+#Session_number 149
+#Initial_state  inP1=4.000000E+03  inP2=4.000000E+03
+ Polarizations= { 0.000000E+00  0.000000E+00 }
+  StrFun1="OFF"
+  StrFun2="OFF"
+
+#Physical_Parameters 
+        EE = 3.134300000000000E-01
+    alfSMZ = 1.184000000000000E-01
+         Q = 1.000000000000000E+02
+       s12 = 2.210000000000000E-01
+       s23 = 4.100000000000000E-02
+       s13 = 3.500000000000000E-03
+        Mm = 1.057000000000000E-01
+        Ml = 1.777000000000000E+00
+      McMc = 1.200000000000000E+00
+      MbMb = 4.250000000000000E+00
+       Mtp = 1.725000000000000E+02
+        MZ = 9.118800000000000E+01
+        MW = 8.038500000000001E+01
+        Mh = 1.250000000000000E+02
+        wt = 1.590000000000000E+00
+        wZ = 2.494440000000000E+00
+        wW = 2.088950000000000E+00
+----
+
+#Breit-Wigner BW range    2.700000
+t-channel widths 0
+GI trick in s-  0
+GI trick in t-  0
+#VVdecays  1
+
+#alphaQCD alphaPDF=1 alpha(MZ)=1.184000E-01 NF=5 Order=2 MbMb=4.200000E+00 Mtp=1.730000E+02
+#QCDscales 
+ Renormalization M1
+ Factorization1 Qren
+ Factorization2 Qpdf1
+ Showering Qren
+
+#Composites 
+*** Table ***
+ Composites  
+  Name  |> Comma separated list of particles                           <|
+p*      |G,d,D,u,U,s,S,c,C,b,B
+=========================================================================
+
+#Cuts 
+*** Table ***
+ Cuts  
+!|  Parameter  |> Min bound <|> Max bound <|
+%|T(p*)        | 50          |
+%|J(p*,p*)     | 0.5         |
+============================================
+
+#END
+
+#Subprocess 290 ( Z -> G, A, d, D )
+#Session_number 149
+#Initial_state  inP1=4.000000E+03  inP2=4.000000E+03
+ Polarizations= { 0.000000E+00  0.000000E+00 }
+  StrFun1="OFF"
+  StrFun2="OFF"
+
+#Physical_Parameters 
+        EE = 3.134300000000000E-01
+    alfSMZ = 1.184000000000000E-01
+         Q = 1.000000000000000E+02
+       s12 = 2.210000000000000E-01
+       s23 = 4.100000000000000E-02
+       s13 = 3.500000000000000E-03
+        Mm = 1.057000000000000E-01
+        Ml = 1.777000000000000E+00
+      McMc = 1.200000000000000E+00
+      MbMb = 4.250000000000000E+00
+       Mtp = 1.725000000000000E+02
+        MZ = 9.118800000000000E+01
+        MW = 8.038500000000001E+01
+        Mh = 1.250000000000000E+02
+        wt = 1.590000000000000E+00
+        wZ = 2.494440000000000E+00
+        wW = 2.088950000000000E+00
+----
+
+#Breit-Wigner BW range    2.700000
+t-channel widths 0
+GI trick in s-  0
+GI trick in t-  0
+#VVdecays  1
+
+#alphaQCD alphaPDF=1 alpha(MZ)=1.184000E-01 NF=5 Order=2 MbMb=4.200000E+00 Mtp=1.730000E+02
+#QCDscales 
+ Renormalization M1
+ Factorization1 Qren
+ Factorization2 Qpdf1
+ Showering Qren
+
+#Composites 
+*** Table ***
+ Composites  
+  Name  |> Comma separated list of particles                           <|
+p*      |G,d,D,u,U,s,S,c,C,b,B
+=========================================================================
+
+#Cuts 
+*** Table ***
+ Cuts  
+!|  Parameter  |> Min bound <|> Max bound <|
+%|T(p*)        | 50          |
+%|J(p*,p*)     | 0.5         |
+============================================
+
+#END
+   1     6.2386E-02   1.06E+01    93312 
+   2     2.2873E-01   1.69E+01    93312 
+   3     1.7911E+00   7.95E+01    93312 
+   4     5.5431E-01   1.41E+01    93312 
+ Negative points 3%;
+   5     6.8451E-01   2.60E+01    93312 
+ Negative points 2E+01%;
+ < >     6.6421E-01   4.33E+01   466560         1      
+   1     2.3869E+00   5.01E+01    93312 
+ Negative points 5%;
+   2     1.1934E+00   2.55E+01    93312 5.5E-02
+ Negative points 8%;
+   3    -2.9510E+00   1.48E+02    93312 1.6E-02
+ Negative points 7E+01%;
+   4     5.4251E-01   6.77E+01    93312 1.7E-03
+ Negative points 3E+01%;
+   5     1.0870E+00   2.95E+01    93312 2.2E-03
+ Negative points 1E+01%;
+ < >     4.5173E-01   2.02E+02   466560 3.4E-03 1      

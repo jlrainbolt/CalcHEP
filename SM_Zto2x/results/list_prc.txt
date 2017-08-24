@@ -1,0 +1,13 @@
+Z -> t,T
+Z -> b,B
+Z -> c,C
+Z -> s,S
+Z -> u,U
+Z -> d,D
+Z -> nl,Nl
+Z -> l,L
+Z -> nm,Nm
+Z -> m,M
+Z -> ne,Ne
+Z -> e,E
+Z -> W+,W-

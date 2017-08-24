@@ -1,0 +1,24 @@
+#Model 0
+#ForceUG 0
+#nIn 1
+#nOut 4
+#Process Z -> m,M,m,M
+#nTot 5
+*Z=Z
+*m=m
+*M=M
+*m=m
+*M=M
+#Remove_Virtual 
+#Remove_X G,W+,W-,ne,Ne,l,L,u,U,b,B,A,h,nl,Nl,s,S,t,T,Z,nm,Nm,d,D,c,C
+#nSubproc(ampl) 1
+#nSubproc(squared) 3
+#Nc==inf  0
+#NcCC==inf  0
+#NoColorChains 0
+#NoDiagrams  1
+#T-widths    0
+#VVdecays    1
+#NewCodes  0
+#nPROCSS 32
+#ExitCode 1
