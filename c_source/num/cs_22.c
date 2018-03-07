@@ -23,7 +23,7 @@
 static REAL pvect4[16];
 
 static double         totcoef;
-static double         cos1, cos2;
+static double         cos1=-0.999, cos2=0.999;
 static double         eps=0.001;
 static int            recalc;
 static char           procname[STRSIZ];
@@ -221,9 +221,6 @@ int  cs_numcalc(double Pcm)
            pinf_int(k,2,NULL,NULL),pinf_int(k,3,NULL,NULL),pinf_int(k,4,NULL,NULL));              
 
    Pcm22=Pcm;
-   
-    cos1=-0.999;
-    cos2= 0.999;
 
    infotext();
    writeinformation();

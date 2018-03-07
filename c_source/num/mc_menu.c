@@ -288,7 +288,7 @@ static int  in_setting(void)
               {  double buf=Helicity[0]; 
                  int spin2; 
                  char txt[60];
-                  (*pinfAux_int)(Nsub,1, &spin2,NULL,NULL);
+                  (*pinfAux_int)(Nsub,1, &spin2,NULL,NULL,NULL);
                   sprintf(txt, "Enter new value [%.1f,%.1f] :", -(spin2/2.),(spin2/2.));
                   correctDouble(40,12,txt,&buf,1);
                   if(fabs(2*buf)>spin2) 
@@ -303,7 +303,7 @@ static int  in_setting(void)
               {  double buf=Helicity[1];
                  int spin2; 
                  char txt[60];
-                  (*pinfAux_int)(Nsub,2, &spin2,NULL,NULL);
+                  (*pinfAux_int)(Nsub,2, &spin2,NULL,NULL,NULL);
                   sprintf(txt, "Enter new value [%.1f,%.1f] :", -(spin2/2.),(spin2/2.));
                   correctDouble(40,12,txt,&buf,1);
                   if(fabs(2*buf)>spin2) 

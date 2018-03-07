@@ -7,20 +7,23 @@
 
 #define nErrMax 10
 
+static double const X2[2]={2.113249E-01,7.886751E-01 };
+static double const F2[2]={5.000000E-01,5.000000E-01 };
+static double const X3[3]={1.127017E-01,5.000000E-01 ,8.872983E-01 };
+static double const F3[3]={2.777778E-01,4.444444E-01 ,2.777778E-01 };
+static double const X4[4]={6.943185E-02,3.300095E-01 ,6.699905E-01 ,9.305682E-01 };
+static double const F4[4]={1.739274E-01,3.260726E-01 ,3.260726E-01 ,1.739274E-01 };
+static double const X5[5]={4.691008E-02,2.307653E-01 ,5.000000E-01 ,7.692347E-01 ,9.530899E-01 };
+static double const F5[5]={1.184634E-01,2.393143E-01 ,2.844445E-01 ,2.393143E-01 ,1.184634E-01 };
+static double const X6[6]={3.376523E-02,1.693953E-01 ,3.806904E-01 ,6.193096E-01 ,8.306047E-01 ,9.662348E-01 };
+static double const F6[6]={8.566223E-02,1.803808E-01 ,2.339570E-01 ,2.339570E-01 ,1.803808E-01 ,8.566225E-02 };
+static double const X7[7]={2.544604E-02,1.292344E-01 ,2.970774E-01 ,5.000000E-01 ,7.029226E-01 ,8.707656E-01 ,9.745540E-01 };
+static double const F7[7]={6.474248E-02,1.398527E-01 ,1.909150E-01 ,2.089796E-01 ,1.909150E-01 ,1.398527E-01 ,6.474248E-02 };
+
+
+
 double gauss( double (*func)(double),double a,double b, int n)
 {
-  double const X2[2]={2.113249E-01,7.886751E-01 };
-  double const F2[2]={5.000000E-01,5.000000E-01 };
-  double const X3[3]={1.127017E-01,5.000000E-01 ,8.872983E-01 };
-  double const F3[3]={2.777778E-01,4.444444E-01 ,2.777778E-01 };
-  double const X4[4]={6.943185E-02,3.300095E-01 ,6.699905E-01 ,9.305682E-01 };
-  double const F4[4]={1.739274E-01,3.260726E-01 ,3.260726E-01 ,1.739274E-01 };
-  double const X5[5]={4.691008E-02,2.307653E-01 ,5.000000E-01 ,7.692347E-01 ,9.530899E-01 };
-  double const F5[5]={1.184634E-01,2.393143E-01 ,2.844445E-01 ,2.393143E-01 ,1.184634E-01 };
-  double const X6[6]={3.376523E-02,1.693953E-01 ,3.806904E-01 ,6.193096E-01 ,8.306047E-01 ,9.662348E-01 };
-  double const F6[6]={8.566223E-02,1.803808E-01 ,2.339570E-01 ,2.339570E-01 ,1.803808E-01 ,8.566225E-02 };
-  double const X7[7]={2.544604E-02,1.292344E-01 ,2.970774E-01 ,5.000000E-01 ,7.029226E-01 ,8.707656E-01 ,9.745540E-01 };
-  double const F7[7]={6.474248E-02,1.398527E-01 ,1.909150E-01 ,2.089796E-01 ,1.909150E-01 ,1.398527E-01 ,6.474248E-02 };
         
   double ans=0;
   if(n<1) n=1;
@@ -47,86 +50,79 @@ double gauss( double (*func)(double),double a,double b, int n)
  }
 
 
-static int  NMAX;
 
 static void r_gauss( double(*func)(double),double a,double b, 
-double eps, double * aEps, double * ans, double * aAns,int* N)
+double eps, double * aEps, double * ans, double * aAns,int* N, int * err)
 {
   int i,n;
-double X3[3]={0.11270166537925831147, 0.50000000000000000000, 0.88729833462074168853};
-double F3[3]={0.27777777777777777778, 0.44444444444444444444, 0.27777777777777777778};
-double X4[4]={0.06943184420297371240, 0.33000947820757186760, 0.66999052179242813240, 0.93056815579702628757};
-double F4[4]={0.17392742256872692869, 0.32607257743127307132, 0.32607257743127307132, 0.17392742256872692869};
-double X5[5]={0.046910077030668003594,0.230765344947158454491,0.50000000000000000000, 0.769234655052841545509, 0.953089922969331996378};
-double F5[5]={0.118463442528094543757,0.239314335249683234015,0.284444444444444444444,0.239314335249683234015, 0.118463442528094543756};
 
-  double s1,s2,s3,e_err,d=b-a;
-
-  for(n=0,s1=0;n<3;n++) s1+=F3[n]*func(a+ d*X3[n]); s1*=d; *N+=3;
-  for(n=0,s2=0;n<4;n++) s2+=F4[n]*func(a+ d*X4[n]); s2*=d; *N+=4;
- 
-  i=0;
-  e_err=eps*fabs(s2);
- 
-  if( fabs(s1-s2) < 30*e_err) i=1;
-  else if( fabs(s1-s2) < 1.6*(*aEps)) i=2; 
-  if(i)   for(n=0,s3=0;n<5;n++) s3+=F5[n]*func(a+ d*X5[n]); s3*=d; *N+=5;
-
-  if(i==1 && fabs(s3-s2) < e_err)  i=3; 
-  if(i==2 && fabs(s3-s2) <  0.1*(*aEps)){i=3;  *aEps -= fabs(s3-s2);}
-
+  double s1,s2,s2a,s3,s3a,e_err,d=b-a;
   
-  if(i==3|| *N>NMAX)
-  {*ans+=s3;
-   *aAns+=fabs(s3);
-    return;
-  }  
-  r_gauss(func,a,(a+b)/2,eps,aEps,ans,aAns,N);
-  r_gauss(func,(a+b)/2,b,eps,aEps,ans,aAns,N);
+  if(*N<0) { if((*err)&2==0) *err+=2; return; }
+
+  for(n=0,s1=0;n<3;n++) s1+=F3[n]*func(a+ d*X3[n]); s1*=d; *N-=3;
+  for(n=0,s2=0,s2a=0;n<4;n++) {double  f=F4[n]*func(a+ d*X4[n]); s2+=f;s2a+=fabs(f);} 
+  s2*=d; s2a*=fabs(d);*N-=4;
+ 
+  if(!isfinite(s1) || ! isfinite(s2)) {if( !((*err)&1) ) *err+=1;  ; return;}  
+
+  e_err=eps*s2a;
+ 
+  if( fabs(s1-s2) < 30*e_err)
+  { 
+    for(n=0,s3=0,s3a=0;n<5;n++) { double f=F5[n]*func(a+ d*X5[n]); s3+=f; s3a+=fabs(f); } 
+    if(!isfinite(s3)) {  if( !((*err)&1) ) *err+=1; return;} 
+    s3*=d; s3a*=fabs(d); *N-=5;
+    if(fabs(s3-s2) < e_err) 
+    { *ans+=s3;
+      *aAns+=s3a;
+      return;
+    }
+  }    
+  else if(fabs(s1-s2) < 0.1*(*aEps)) 
+  {  *ans+=s2;
+     *aAns+=s2a;   
+     *aEps -= fabs(s1-s2);
+     return;
+  }
+         
+  r_gauss(func,a,(a+b)/2,eps,aEps,ans,aAns,N,err);
+  r_gauss(func,(a+b)/2,b,eps,aEps,ans,aAns,N,err);
 }   
 
 double gauss345( double (*func)(double),double a,double b, double eps,int * err_code)
 {
   double aEps; /* absolute error  */
-  int i,k;	
-  double X4[4]={6.943185E-02,3.300095E-01 ,6.699905E-01 ,9.305682E-01 };
-  double F4[4]={1.739274E-01,3.260726E-01 ,3.260726E-01 ,1.739274E-01 };
+  int n,k,err=0;	
 
   if(a==b) return 0;
-  for(i=0,aEps=0;i<4;i++) aEps+=F4[i]*fabs(func(a+ (b-a)*X4[i]));
   if(err_code && *err_code) return 0;
 
-  if(aEps==0.)  return 0;
-
+  for(n=0,aEps=0;n<4;n++) aEps+=F4[n]*fabs(func(a+ (b-a)*X4[n]));
+  
+  if(!isfinite(aEps)) { if(err_code) *err_code=1; else printf("NaN in integrand\n"); 
+                        return 0; 
+                      }  
+  if(aEps==0.)        { if(err_code) *err_code=0;
+                        return 0;
+                      }
   eps=eps/2;
   aEps = eps*aEps*fabs(b-a);
-  NMAX=50000*pow(2., (-log10(eps)-2)/2.); 
+
+
   for(k=0;;k++)
   {  double ans=0., aAns=0., aEps0=aEps;
-     int N=4;
-     r_gauss(func,a,b,eps,&aEps,&ans,&aAns,&N);
-     if(N> NMAX)  {if(err_code) *err_code=3; return 0;}
-     if(err_code && *err_code) return 0;
-     if( aEps0-aEps < eps*aAns)  return ans;
-     if(k>5) { if(err_code)*err_code=1; return ans;}
+     int N=50000*pow(2., (-log10(eps)-2)/2.);
+     r_gauss(func,a,b,eps,&aEps,&ans,&aAns,&N,&err);
+//printf("k=%d  aEps0=%E aEps=%E aAns=%E \n",k, aEps0, aEps, aAns);
+     if(err) {if(err_code) *err_code=err; return ans;}     
+     if(aEps0-aEps < eps*aAns || k) { if(err_code) *err_code=err;    return ans;} 
      aEps=aAns*eps;
   }
 }
 
 double gauss_arg( double (*func)(double,void*),void*par,double a,double b,  int n)
 {
-  double const X2[2]={2.113249E-01,7.886751E-01 };
-  double const F2[2]={5.000000E-01,5.000000E-01 };
-  double const X3[3]={1.127017E-01,5.000000E-01 ,8.872983E-01 };
-  double const F3[3]={2.777778E-01,4.444444E-01 ,2.777778E-01 };
-  double const X4[4]={6.943185E-02,3.300095E-01 ,6.699905E-01 ,9.305682E-01 };
-  double const F4[4]={1.739274E-01,3.260726E-01 ,3.260726E-01 ,1.739274E-01 };
-  double const X5[5]={4.691008E-02,2.307653E-01 ,5.000000E-01 ,7.692347E-01 ,9.530899E-01 };
-  double const F5[5]={1.184634E-01,2.393143E-01 ,2.844445E-01 ,2.393143E-01 ,1.184634E-01 };
-  double const X6[6]={3.376523E-02,1.693953E-01 ,3.806904E-01 ,6.193096E-01 ,8.306047E-01 ,9.662348E-01 };
-  double const F6[6]={8.566223E-02,1.803808E-01 ,2.339570E-01 ,2.339570E-01 ,1.803808E-01 ,8.566225E-02 };
-  double const X7[7]={2.544604E-02,1.292344E-01 ,2.970774E-01 ,5.000000E-01 ,7.029226E-01 ,8.707656E-01 ,9.745540E-01 };
-  double const F7[7]={6.474248E-02,1.398527E-01 ,1.909150E-01 ,2.089796E-01 ,1.909150E-01 ,1.398527E-01 ,6.474248E-02 };
                 
   double ans=0;
   if(n<1) n=1;
@@ -219,8 +215,7 @@ double simpson( double (*func)(double),double a,double b, double  eps)
 //printf("SIMPSON: esp=%E aEps=%E\n", eps,aEps);
   int nErr=0;
   for(j=0;;j++)
-  {  double ans=0., aAns=0.; 
-     int deepness=1;
+  {  double ans=0., aAns=0.;
      r_simpson(func,f,a,b,eps,&aEps,&ans,&aAns,0,&nErr);
      if(5*aAns*eps > aEps || j>=2 ) return ans;
      if(!isfinite(aAns)) return aAns;
@@ -231,7 +226,7 @@ double simpson( double (*func)(double),double a,double b, double  eps)
 
 
 static void r_simpson_arg( double(*func)(double,void*par),double * f,double a,double b, void*par, 
-double eps, double * aEps, double * ans, double * aAns, int depth,int*nErr)
+                           double eps, double * aEps, double * ans, double * aAns, int depth,int*nErr)
 {
   double f1[5];
   int i;
@@ -301,5 +296,85 @@ double simpson_arg( double (*func)(double,void*),void*par,double a,double b, dou
      for(i=0;i<9;i++)  f[i]=(*func)(a+i*(b-a)/8,par);
      aEps=aAns*eps;
   }  
+}
+
+
+static void r_gauss_arg( double(*func)(double,void*),void*par, double a,double b, 
+double eps, double * aEps, double * ans, double * aAns,int* N, int depth, int*err)
+{
+  int n;
+
+  double s1,s2,s2a,s3,s3a,e_err,d=b-a;
+
+  if(*N<0)     { if((*err)&2==0) *err+=2; return; }
+  if(depth>50) { if((*err)&4==0) *err+=4; return; }
+
+  for(n=0,s1=0;n<3;n++) s1+=F3[n]*func(a+ d*X3[n],par); s1*=d; *N-=3;
+  for(n=0,s2=0,s2a=0;n<4;n++) {double f=F4[n]*func(a+ d*X4[n],par); s2+=f; s2a+=fabs(f);} 
+  s2*=d; s2a*=fabs(d);*N-=4;
+  
+  if(!isfinite(s1) || !isfinite(s2)) { if( !((*err)&1) ) *err+=1; return;}
+ 
+  e_err=eps*fabs(s2);
+ 
+  if( fabs(s1-s2) < 30*e_err)
+  { 
+    for(n=0,s3=0,s3a=0;n<5;n++) {double f=F5[n]*func(a+ d*X5[n],par); s3+=f; s3a+=fabs(f);} 
+    if(!isfinite(s3)) {  if( !((*err)&1) ) *err+=1; return;} 
+    s3*=d; s3a*=d; *N-=5;
+    if(fabs(s3-s2) < e_err) 
+    { *ans+=s3;
+      *aAns+=s3a;
+      return;
+    }
+  }    
+  else if(fabs(s1-s2) < 0.1*(*aEps)) 
+  {  *ans+=s2;
+     *aAns+=s2a;   
+     *aEps -= fabs(s1-s2);
+     return;
+  }
+  
+  r_gauss_arg(func,par,a,(a+b)/2,eps,aEps,ans,aAns,N,depth+1,err);
+  if(*err)  return;
+  r_gauss_arg(func,par,(a+b)/2,b,eps,aEps,ans,aAns,N,depth+1,err);
+}   
+
+double gauss345_arg( double (*func)(double,void*),void*par,double a,double b, double eps,int * err_code)
+{
+  double d,s1,s2,s2a,s3,s3a,aEps; /* absolute error  */
+  int k,n,err=0;	
+
+  if(a==b) return 0;
+  d=b-a;
+  for(n=0,s1=0;n<3;n++) s1+=F3[n]*func(a+ d*X3[n],par); s1*=d;
+  for(n=0,s2=0,s2a=0;n<4;n++) {double f=F4[n]*func(a+ d*X4[n],par); s2+=f; s2a+=fabs(f);}
+       s2*=d; s2a*=fabs(d);
+
+  if(!isfinite(s1) || !isfinite(s2)  ) { if(err_code) *err_code=1; return (s2+s3)/2;}
+       
+  aEps= s2a*eps;
+  if( fabs(s1-s2) < 30*aEps)
+  { 
+    for(n=0,s3=0,s3a=0;n<5;n++) {double f=F5[n]*func(a+ d*X5[n],par); s3+=f; s3a+=fabs(f);} 
+    if(!isfinite(s3)) {  if(err_code) *err_code=1; return s3;} 
+    s3*=d; s3a*=fabs(d);
+    if(fabs(s3-s2) < aEps)  {if(err_code) *err_code=0; return s3;}
+    aEps=eps*s3a;
+  }    
+
+  aEps/=2;
+  eps=eps/2;
+
+  for(k=0;;k++)
+  {  double ans=0., aAns=0., aEps0=aEps;
+     int N=50000*pow(2., (-log10(eps)-2)/2.);
+     r_gauss_arg(func,par,a,b,eps,&aEps,&ans,&aAns,&N,0,&err);
+//printf("k=%d  aEps0=%E aEps=%E aAns=%E \n",k, aEps0, aEps, aAns);
+     if(err) {if(err_code) *err_code=err; return 0;}     
+     if(aEps0-aEps < 1.5*eps*aAns || k) { if(err_code) *err_code=0;    return ans;} 
+     aEps=aAns*eps;
+  } 
+  
 }
 

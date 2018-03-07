@@ -1,0 +1,3 @@
+Z -> e,e,E,E
+Z -> e,E,m,M
+Z -> m,m,M,M

@@ -1,0 +1,83 @@
+<calchep-session.dat>
+<![CDATA[
+
+#Initial_state  inP1=6.500000E+03  inP2=6.500000E+03
+ Polarizations= { 0.000000E+00  0.000000E+00 }
+  StrFun1="OFF"
+  StrFun2="OFF"
+
+#Physical_Parameters 
+        EE = 3.134300000000000E-01
+    alfSMZ = 1.184000000000000E-01
+         Q = 1.000000000000000E+02
+       s12 = 2.210000000000000E-01
+       s23 = 4.100000000000000E-02
+       s13 = 3.500000000000000E-03
+        Mm = 1.057000000000000E-01
+        Ml = 1.777000000000000E+00
+      McMc = 1.200000000000000E+00
+      MbMb = 4.250000000000000E+00
+       Mtp = 1.725000000000000E+02
+        MZ = 9.118800000000000E+01
+        MW = 8.038500000000001E+01
+        Mh = 1.250000000000000E+02
+        wt = 1.590000000000000E+00
+        wZ = 2.494440000000000E+00
+        wW = 2.088950000000000E+00
+----
+
+#Breit-Wigner BW range    2.700000
+t-channel widths 0
+GI trick in s-  0
+GI trick in t-  0
+#VVdecays  1
+
+#alphaQCD alphaPDF=1 alpha(MZ)=1.184000E-01 NF=5 Order=2 MbMb=4.200000E+00 Mtp=1.730000E+02
+#QCDscales 
+ Renormalization M1
+ Factorization1 Qren
+ Factorization2 Qpdf1
+ Showering Qren
+
+#Composites 
+*** Table ***
+ Composites  
+  Name  |> Comma separated list of particles                           <|
+p*      |G,d,D,u,U,s,S,c,C,b,B
+=========================================================================
+
+#Cuts 
+*** Table ***
+ Cuts  
+    <|  Parameter  |> Min bound <|> Max bound <|
+ %   |T(E)         | 7           |
+     |M(e,E)       | 4           |
+================================================
+
+#Parallelization   32
+
+#Distributions 
+*** Table ***
+Distributions
+Parameter_1|> Min_1  <|> Max_1  <|Parameter_2|> Min_2  <|> Max_2  <|
+====================================================================
+
+#Kinematical_scheme 
+12 -> 3 , 456
+456 -> 4 , 56
+56 -> 5 , 6
+
+#Regularization 
+*** Table ***
+ Regularization 
+ Momentum    |> Mass  <|> Width <| Power|
+=========================================
+
+#Vegas_calls 100000x10 100000x5
+]]>
+</calchep-session.dat>
+#Subprocess 1 ( u, U -> e, e, E, E ) Cross section = 6.0484E-08 pb (4.99E+00%)
+#Subprocess 2 ( d, D -> e, e, E, E ) Cross section = 8.5443E-08 pb (5.07E+00%)
+#Subprocess 3 ( U, u -> e, e, E, E ) Cross section = 6.7070E-08 pb (1.08E+01%)
+#Subprocess 4 ( D, d -> e, e, E, E ) Cross section = 1.0490E-07 pb (3.01E+01%)
+Total Cross Section 3.179E-07 [pb] (1.032E+01%)

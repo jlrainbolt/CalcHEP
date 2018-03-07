@@ -1,5 +1,5 @@
 : 
-  CALCHEP=/tthome/jaj710/calchep_3.6.29 
+  CALCHEP=/tthome/jaj710/calchep_3.6.30 
 #-------------------- 
 
 if(test $# -ne 1) then

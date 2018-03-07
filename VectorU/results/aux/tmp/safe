@@ -1,0 +1,24 @@
+#Model 1
+#ForceUG 0
+#nIn 1
+#nOut 4
+#Process U -> ta-,ta+,b,b~
+#nTot 5
+*U=U
+*ta-=ta-
+*ta+=ta+
+*b=b
+*b~=b~
+#Remove_Virtual 
+#Remove_X 
+#nSubproc(ampl) 1
+#nSubproc(squared) 1
+#Nc==inf  0
+#NcCC==inf  0
+#NoColorChains 0
+#NoDiagrams  1
+#T-widths    0
+#VVdecays    1
+#NewCodes  0
+#nPROCSS 32
+#ExitCode 5

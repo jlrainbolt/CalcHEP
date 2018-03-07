@@ -591,9 +591,9 @@ numout*newProcess(char*Process)
 
 //============================
 
-int HiggsLambdas(char * Higgs, double complex*lAA,double complex *lGG, double complex *lAA5, double complex *lGG5)
+int HiggsLambdas(double Q, char * Higgs, double complex*lAA,double complex *lGG, double complex *lAA5, double complex *lGG5)
 {               
-   *lGG=0; *lGG5=0; *lAA=0; *lAA5=0;
+   if(lGG)*lGG=0;  if(lGG5)*lGG5=0; if(lAA)*lAA=0; if(lAA5)*lAA5=0;
    int i;
    for(i=0;i<nModelParticles;i++) if(strcmp(ModelPrtcls[i].name,Higgs)==0) break;
    if(i==nModelParticles) { printf(" %s - no such particles\n",Higgs);   return 0;}
@@ -605,8 +605,8 @@ int HiggsLambdas(char * Higgs, double complex*lAA,double complex *lGG, double co
    double complex ffE=0,faE=0,ffC=0,faC=0; 
   
    txtList L = makeDecayList(Higgs,2), l=L;
-   double mH=pMass(Higgs);
-   double a=alphaQCD(mH)/M_PI;
+
+   double a=alphaQCD(Q)/M_PI;
    for(l=L;l;l=l->next)
    { char Xp[10], Xm[10];
      sscanf(strstr(l->txt,"->")+2, "%[^,],%s",Xp,Xm);
@@ -642,12 +642,12 @@ int HiggsLambdas(char * Higgs, double complex*lAA,double complex *lGG, double co
                case 2:  if(strcmp(xxh->SymbVert[k],"m2.m1")==0) addFF=1;break; 
              }
                if(addFF)
-               { if(cdim!=1) *lGG+=hGGeven(mH,a,1,spin2,cdim,mXp,coeff[k]/mN); 
-                 if( charge3 ) *lAA+=hAAeven(mH,a,1,spin2,cdim,mXp,coeff[k]/mN)*charge3*charge3/9.;
+               { if(lGG && cdim!=1) *lGG+=hGGeven(Q,a,1,spin2,cdim,mXp,coeff[k]/mN); 
+                 if(lAA && charge3 ) *lAA+=hAAeven(Q,a,1,spin2,cdim,mXp,coeff[k]/mN)*charge3*charge3/9.;
                }
                if(addFA) 
-               { if(cdim!=1) *lGG5+=0.5*hGGodd(mH,a,1,spin2,cdim,mXp,coeff[k]/mN); 
-                 if(charge3) *lAA5+=0.5*hAAodd(mH,a,1,spin2,cdim,mXp,coeff[k]/mN)*charge3*charge3/9.; 
+               { if(lGG5 && cdim!=1) *lGG5+=0.5*hGGodd(Q,a,1,spin2,cdim,mXp,coeff[k]/mN); 
+                 if(lAA5 && charge3) *lAA5+=0.5*hAAodd(Q,a,1,spin2,cdim,mXp,coeff[k]/mN)*charge3*charge3/9.; 
                } 
              }   
           }                     
@@ -663,22 +663,8 @@ static lambdaRec* allLambdas=NULL;
 
 void cleanHiggs_AA_GG(void) { free(allLambdas); allLambdas=NULL; nHiggs=0;} 
  
-static double complex lXXhiggs(char * hName, int pos)
-{
-   int i;
-   double complex lAA,lGG,lAA5,lGG5;
-   for(i=0;i<nHiggs;i++) if(strcmp(hName,allLambdas[i].hName)==0) return allLambdas[i].lXX[pos];
-   if(!HiggsLambdas(hName, &lAA,&lGG, &lAA5, &lGG5)) { FError=1;  return 0;}
-   allLambdas=(lambdaRec*)realloc(allLambdas,(nHiggs+1)*sizeof(lambdaRec));
-   allLambdas[nHiggs].lXX[0]=lAA;
-   allLambdas[nHiggs].lXX[1]=lGG;
-   allLambdas[nHiggs].lXX[2]=lAA5;
-   allLambdas[nHiggs].lXX[3]=lGG5;
-   strcpy(allLambdas[nHiggs].hName,hName);
-   return allLambdas[nHiggs++].lXX[pos];
-}
 
-double complex lAAhiggs(char  * hName) { return  lXXhiggs(hName,0);}
-double complex lGGhiggs(char  * hName) { return  lXXhiggs(hName,1);}
-double complex lAA5higgs(char * hName) { return  lXXhiggs(hName,2);}   
-double complex lGG5higgs(char * hName) { return  lXXhiggs(hName,3);} 
+double complex lAAhiggs(double Q, char * hName) { double complex lAA;  if(HiggsLambdas(Q,hName, &lAA,NULL,NULL, NULL))  return lAA; else  { FError=1;  return 0;} }
+double complex lGGhiggs(double Q, char * hName) { double complex lGG;  if(HiggsLambdas(Q,hName, NULL,&lGG,NULL, NULL))  return lGG; else  { FError=1;  return 0;} } 
+double complex lAA5higgs(double Q,char * hName) { double complex lAA5; if(HiggsLambdas(Q,hName, NULL,NULL,&lAA5,NULL))  return lAA5; else { FError=1;  return 0;} }
+double complex lGG5higgs(double Q,char * hName) { double complex lGG5; if(HiggsLambdas(Q,hName, NULL,NULL,NULL,&lGG5))  return lGG5; else { FError=1;  return 0;} }

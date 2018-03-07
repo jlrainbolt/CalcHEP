@@ -1,0 +1,180 @@
+
+#Subprocess 2 ( Z -> e-, e+, mu-, mu+ )
+#Session_number 100
+#Initial_state  inP1=4.000000E+03  inP2=4.000000E+03
+ Polarizations= { 0.000000E+00  0.000000E+00 }
+  StrFun1="OFF"
+  StrFun2="OFF"
+
+#Physical_Parameters 
+     aEWM1 = 1.279000000000000E+02
+        Gf = 1.166370000000000E-05
+        aS = 1.184000000000000E-01
+      ymdo = 5.040000000000000E-03
+      ymup = 2.550000000000000E-03
+       yms = 1.010000000000000E-01
+       ymc = 1.270000000000000E+00
+       ymb = 4.700000000000000E+00
+       ymt = 1.720000000000000E+02
+       yme = 5.110000000000000E-04
+       ymm = 1.056600000000000E-01
+     ymtau = 1.777000000000000E+00
+      cabi = 2.277360000000000E-01
+    gUb1x1 = 4.000000000000000E-01
+    gUb1x2 = 0.000000000000000E+00
+    gUb1x3 = 0.000000000000000E+00
+    gUb2x1 = 0.000000000000000E+00
+    gUb2x2 = 4.000000000000000E-01
+    gUb2x3 = 0.000000000000000E+00
+    gUb3x1 = 0.000000000000000E+00
+    gUb3x2 = 0.000000000000000E+00
+    gUb3x3 = 0.000000000000000E+00
+        MZ = 9.118760000000000E+01
+        Me = 5.110000000000000E-04
+       MMU = 1.056600000000000E-01
+       MTA = 1.777000000000000E+00
+        MU = 2.550000000000000E-03
+        MC = 1.270000000000000E+00
+        MT = 1.720000000000000E+02
+        MD = 5.040000000000000E-03
+        MS = 1.010000000000000E-01
+        MB = 4.700000000000000E+00
+        MH = 1.250000000000000E+02
+       MUb = 5.000000000000000E+01
+         E = 2.718282000000000E+00
+        Pi = 3.141593000000000E+00
+----
+
+#Breit-Wigner BW range    2.700000
+t-channel widths 0
+GI trick in s-  0
+GI trick in t-  0
+#VVdecays  1
+
+#alphaQCD alphaPDF=1 alpha(MZ)=1.184000E-01 NF=5 Order=2 MbMb=4.200000E+00 Mtp=1.730000E+02
+#QCDscales 
+ Renormalization M1
+ Factorization1 Qren
+ Factorization2 Qpdf1
+ Showering Qren
+
+#Composites 
+*** Table ***
+ Composites  
+  Name  |> Comma separated list of particles                           <|
+p*      |g,d,d~,u,u~,s,s~,c,c~,b,b~
+l+      |e+,mu+
+l-      |e-,mu-
+=========================================================================
+
+#Cuts 
+*** Table ***
+ Cuts  
+!|  Parameter  |> Min bound <|> Max bound <|
+%|T(p*)        | 50          |
+%|J(p*,p*)     | 0.5         |
+ |M(l+,l-)     |4            |
+============================================
+
+#END
+   1     4.9170E-06   1.74E+00    93312 
+ Negative points 7%;
+   2     4.9355E-06   6.18E-01    93312 
+ Negative points 7%;
+   3     4.9478E-06   4.71E-01    93312 
+ Negative points 7%;
+   4     4.9178E-06   4.62E-01    93312 
+ Negative points 7%;
+   5     4.9075E-06   4.50E-01    93312 
+ Negative points 7%;
+   6     4.9206E-06   4.54E-01    93312 
+ Negative points 7%;
+   7     4.9041E-06   4.50E-01    93312 
+ Negative points 7%;
+   8     4.9329E-06   4.56E-01    93312 
+ Negative points 7%;
+   9     4.8723E-06   4.58E-01    93312 
+ Negative points 7%;
+  10     4.9041E-06   4.56E-01    93312 
+ Negative points 7%;
+  11     4.9334E-06   4.51E-01    93312 
+ Negative points 7%;
+  12     4.9189E-06   4.53E-01    93312 
+ Negative points 7%;
+  13     4.9524E-06   4.47E-01    93312 
+ Negative points 7%;
+  14     4.9148E-06   4.61E-01    93312 
+ Negative points 7%;
+  15     4.9181E-06   4.50E-01    93312 
+ Negative points 7%;
+  16     4.9218E-06   4.49E-01    93312 
+ Negative points 7%;
+  17     4.9206E-06   4.44E-01    93312 
+ Negative points 7%;
+  18     4.9234E-06   4.46E-01    93312 
+ Negative points 7%;
+  19     4.9304E-06   4.47E-01    93312 
+ Negative points 7%;
+  20     4.8940E-06   4.58E-01    93312 
+ Negative points 7%;
+  21     4.9130E-06   4.37E-01    93312 
+ Negative points 7%;
+  22     4.9563E-06   4.41E-01    93312 
+ Negative points 7%;
+  23     4.9220E-06   4.58E-01    93312 
+ Negative points 7%;
+  24     4.9247E-06   4.59E-01    93312 
+ Negative points 7%;
+  25     4.9536E-06   4.45E-01    93312 
+ Negative points 7%;
+  26     4.9301E-06   4.54E-01    93312 
+ Negative points 7%;
+  27     4.9209E-06   4.71E-01    93312 
+ Negative points 7%;
+  28     4.8966E-06   4.69E-01    93312 
+ Negative points 7%;
+  29     4.9235E-06   4.40E-01    93312 
+ Negative points 7%;
+  30     4.9286E-06   4.43E-01    93312 
+ Negative points 7%;
+  31     4.9546E-06   4.52E-01    93312 
+ Negative points 7%;
+  32     4.9359E-06   4.40E-01    93312 
+ Negative points 7%;
+  33     4.9143E-06   4.51E-01    93312 
+ Negative points 7%;
+  34     4.9323E-06   4.52E-01    93312 
+ Negative points 7%;
+  35     4.9553E-06   4.46E-01    93312 
+ Negative points 7%;
+  36     4.9441E-06   4.44E-01    93312 
+ Negative points 7%;
+  37     4.9104E-06   4.51E-01    93312 
+ Negative points 7%;
+  38     4.9066E-06   4.47E-01    93312 
+ Negative points 7%;
+  39     4.9740E-06   4.35E-01    93312 
+ Negative points 7%;
+  40     4.9504E-06   4.42E-01    93312 
+ Negative points 7%;
+  41     4.9122E-06   4.52E-01    93312 
+ Negative points 7%;
+  42     4.9432E-06   4.51E-01    93312 
+ Negative points 7%;
+  43     4.9359E-06   4.49E-01    93312 
+ Negative points 7%;
+  44     4.9350E-06   4.57E-01    93312 
+ Negative points 7%;
+  45     4.9367E-06   4.41E-01    93312 
+ Negative points 7%;
+  46     4.8799E-06   4.58E-01    93312 
+ Negative points 7%;
+  47     4.9411E-06   4.37E-01    93312 
+ Negative points 7%;
+  48     4.9249E-06   4.53E-01    93312 
+ Negative points 7%;
+  49     4.8976E-06   4.52E-01    93312 
+ Negative points 7%;
+  50     4.9463E-06   4.43E-01    93312 
+ Negative points 7%;
+ < >     4.9257E-06   7.25E-02  4665600         0.6    

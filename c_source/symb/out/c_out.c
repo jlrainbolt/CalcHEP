@@ -705,7 +705,7 @@ static void  make_pinf(void)
       writeF("\"};\n");
    }
 
-   writeF("int pinfAux_ext(int nsub,int nprtcl,int*spin2,int*color,int*neutral)\n{\n");
+   writeF("int pinfAux_ext(int nsub,int nprtcl,int*spin2,int*color,int*neutral,int*ndf)\n{\n");
 /*   writeF("int n;\n"); */
 
    writeF("int const pcode[%d][%d]={\n",subproc_sq,nin + nout);
@@ -752,7 +752,7 @@ static void  make_pinf(void)
       inftmp = inftmp->next;
    }
 
- writeF("int const Neutral[%d][%d]={\n",subproc_sq,nin + nout);
+   writeF("int const Neutral[%d][%d]={\n",subproc_sq,nin + nout);
 
    inftmp = inf;
    for (nsub = 1; nsub <= subproc_sq; nsub++)
@@ -768,11 +768,31 @@ static void  make_pinf(void)
       inftmp = inftmp->next;
    }
    
+   writeF("int const NDF[%d][%d]={\n",subproc_sq,nin + nout);
+
+   inftmp = inf;
+   for (nsub = 1; nsub <= subproc_sq; nsub++)
+   {  writeF("{");
+      for (i = 0; i < nin + nout; i++)
+      { int pos;
+        if(i) writeF(",");  
+	locateinbase(inftmp->p_name[i], &pos);
+	int ndf=fabs(prtclbase1[pos].cdim);
+	int spin2=prtclbase1[pos].spin;
+	if(strcmp(prtclbase1[pos].massidnt,"0")==0 && spin2==2    ) ndf*=2;
+	else if(strchr("LR",prtclbase1[pos].hlp)==0)  ndf*=(spin2+1);
+         writeF("%d",ndf);
+      }
+      if (nsub== subproc_sq) writeF("}};\n"); else  writeF("},\n"); 
+      inftmp = inftmp->next;
+   }
+    
    writeF("if(nsub<0 ||nsub>%d||nprtcl<0||nprtcl>%d) return 0;\n",
    subproc_sq,nin + nout);
    writeF("if(spin2) *spin2=Spin2[nsub-1][nprtcl-1];\n");
    writeF("if(color) *color=Color[nsub-1][nprtcl-1];\n");
    writeF("if(neutral) *neutral=Neutral[nsub-1][nprtcl-1];\n");
+   writeF("if(ndf) *ndf=NDF[nsub-1][nprtcl-1];\n");
    writeF("return pcode[nsub-1][nprtcl-1];\n}\n");   
 }
 

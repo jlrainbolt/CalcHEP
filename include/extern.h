@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdio.h>
-#include <math.h>   
-#include <complex.h>
+#include <math.h> 
 
 #include"nType.h"
         
@@ -23,8 +22,10 @@ extern REAL MixMatrixU(int id, int i,int j);
 extern int cDiagonalH(int Dim,...);
 extern int cDiagonalA(int Dim,...);
 extern int cDiagonalS(int Dim,...);
+
 extern double complex cMixMatrix(int id,int i,int j);
 extern double complex cMixMatrixU(int id,int i,int j);
+
 extern int System(char * format, ...);
 extern int openAppend(char * fileName);
 extern int aPrintF(char * format,...);
@@ -62,13 +63,13 @@ extern double Mbp(void);
 
 extern double complex  hGGeven(double MH, double alphaMH, int Nitems, ...);
 extern double complex  hAAeven(double MH, double alphaMH, int Nitems, ...);
-extern double complex  hGGodd(double MH, double alphaMH, int Nitems, ...);
-extern double complex  hAAodd(double MH, double alphaMH, int Nitems, ...);
+extern double complex  hGGodd(double MH,  double alphaMH, int Nitems, ...);
+extern double complex  hAAodd(double MH,  double alphaMH, int Nitems, ...);
 
-extern double complex lAAhiggs(char*hName);
-extern double complex lGGhiggs(char*hName);
-extern double complex lAA5higgs(char*hName);
-extern double complex lGG5higgs(char*hName);
+extern double complex lAAhiggs(double Q, char*hName);
+extern double complex lGGhiggs(double Q, char*hName);
+extern double complex lAA5higgs(double Q,char*hName);
+extern double complex lGG5higgs(double Q,char*hName);
 
 
 /* To avoid avto-prototyping  
